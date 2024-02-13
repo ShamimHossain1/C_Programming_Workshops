@@ -1,0 +1,48 @@
+///////////////////////////////////////////////////////////////////////////
+                               Reflection
+                             Workshop - #4
+Full Name   : Shamim Hossain Srabon
+Student ID#: 135646230
+
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+1.Ans: Both "while" and "do/while" have subtle differences in how they handle the evaluation of the loop condition.
+"While" check the condition before the first execution. If the condition matched then inside program will run.
+On the other hand, "do/while" execute the loop body atleast onece. Then it will check if the condition matched or not.
+
+2.Ans:    if (pickedApples > needApples)
+                {
+                    totalPickedApples = totalPickedApples - pickedApples;
+                    needMoreApples = apples - totalPickedApples;
+
+                    printf("You picked too many... only %d more APPLE(S) are needed.\n", needMoreApples);
+                }
+                else if (pickedApples < 1)
+                {
+                    printf("ERROR: You must pick at least 1!\n");
+                    totalPickedApples = totalPickedApples - pickedApples;
+                }
+                else
+                {
+                    needApples = apples - totalPickedApples;
+                    if (totalPickedApples != apples)
+                    {
+                        printf("Looks like we still need some APPLES...\n");
+                    }
+                }
+This code is from part 2 where i use "if/else if". In this code "if/else if" improves readability and efficiency by ensuring that
+only one block of code is executed based on the first true condition. If I use a series of "if" optional paths, all conditions would 
+be evaluated even if the first one is true. This can be less efficient, especially if there are multiple conditions, as it unnecessarily 
+checks subsequent conditions even after one has been satisfied.
+
+3.Ans: I write every sections step by step. I focused on making the program easy to read and maintain by organizing it logically. 
+I used meaningful variable names like 'pickedApples' and 'totalPickedApples' to make it clear what each variable represents. I use 
+do-while loops for input validation and product picking. The use of do-while ensures that certain actions are repeated until a 
+specific condition is met, providing a user-friendly experience by prompting users until they provide valid inputs or complete a task.
+I utilized if, else if, and else constructs to handle different cases based on conditions. This helps in logically branching the program's flow. 
+I also use comments in every sections so that i can keep track that what it's for.

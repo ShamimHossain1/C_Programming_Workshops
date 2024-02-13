@@ -1,0 +1,1 @@
+ printf("Log starting date: %d-%s-01\n\n", Year

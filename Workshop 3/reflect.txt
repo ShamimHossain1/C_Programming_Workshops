@@ -1,0 +1,36 @@
+///////////////////////////////////////////////////////////////////////////
+                              Reflection
+                          Workshop - #3 (P2)
+Full Name   : Shamim Hossain Srabon
+Student ID#: 135646230
+Email            : shsrabon@myseneca.ca
+Section         : NHH
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+Q.1. Ans: In Part 2 , I created total 12 differrent variables. It's very important to organize variables
+because depend on my needs i have to declare different types of variables. If i organize them in a 
+suitable place then it would be very easy for me to find them and fix errors if there any.
+
+Q.2.Ans: My code : (Cfe1_Type == 'L' || Cfe1_Type == 'l')
+
+Relational Expression: Cfe1_Type == 'L': This is a relational expression that checks if the value of Cfe1_Type is equal to the character 'L'.
+
+Logical Expression:(Cfe1_Type == 'L' || Cfe1_Type == 'l'): This is a logical expression that uses the logical OR (||) operator to combine the
+ results of two relational expressions. It evaluates to true if at least one of the relational expressions is true or it will evaluate false.
+
+Q.3.Ans:  DeMorgan's Law is a set of two mathematical rules that describe how to negate logical expressions.
+// My Code
+((coffeeStrength == 'l' || coffeeStrength == 'L') && (Cfe1_Type == 'l' || Cfe1_Type == 'L')) ||
+((coffeeStrength == 'm' || coffeeStrength == 'M') && (Cfe1_Type == 'm' || Cfe1_Type == 'M')) ||
+((coffeeStrength == 'r' || coffeeStrength == 'R') && (Cfe1_Type == 'r' || Cfe1_Type == 'R'))
+
+// Applying DeMorgan's Law :
+!(coffeeStrength == 'l' || coffeeStrength == 'L') || !(Cfe1_Type == 'l' || Cfe1_Type == 'L') &&
+!(coffeeStrength == 'm' || coffeeStrength == 'M') || !(Cfe1_Type == 'm' || Cfe1_Type == 'M') &&
+!(coffeeStrength == 'r' || coffeeStrength == 'R') || !(Cfe1_Type == 'r' || Cfe1_Type == 'R')
+

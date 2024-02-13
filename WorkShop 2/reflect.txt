@@ -1,0 +1,35 @@
+///////////////////////////////////////////////////////////////////////////
+                              Reflection
+                          Workshop - #2 (P2)
+Full Name : Shamim Hossain Srabon
+Student ID#: 135646230
+Email : shsrabon@myseneca.ca
+Section : NHH
+
+Authenticity Declaration:
+
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+1. Ans:
+a) First code output a = 4 and the second code a = 3
+b) In the first code the value of 'a' will increase by 1 before printf execution. In the second code value will increase after printf execution. So, the 1st code output shows 4 because it increased before printf execution and in the second code output 3 because ‘a’ value was assigned 3 before printf execution. They main difference between these two codes is the location of the increment operation ‘a++’.
+
+2.Ans:The value of price1 and the corresponding converted cent value do not properly represent the intended value because %f format specifier in the printf statement. %f is used for double precision floating-point numbers, but price1 is a single precision float. The other samples work as expected because the correct format specifiers are used for their variable types.
+
+3.Ans:
+printf("1. $%.2lf\n", money / 100); Output: 1. $20.00
+This line divides money by 100. The result will be an integer value. The result will be a double value when used in the printf statement because of The format specifier %lf and 2 indicates that output will be a double with two decimal places. Here promotion and Coercion terms applied.
+
+printf("2. $%d\n", money / 100); Output: 2. $20	
+Like the first line this line performs integer division, and the result is formatted as an integer using %d. Here coercion term applied.
+
+printf("3. $%.2lf\n", (double)money / 100); Output: 3. $20.31
+Here, (double)money will cast money to a double before performing the division. The result is a double with two decimal places. Here promotion terms applied. Here explicit term applied.
+
+printf("4. $%d\n", (double)money / 100); Output: 4. $20
+This line also cast money to a double. The result is formatted as an integer. Here explicit term applied.
+
+
