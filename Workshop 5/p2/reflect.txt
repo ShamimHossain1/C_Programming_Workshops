@@ -10,3 +10,18 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
 
+---------------1.ANS:--------------
+
+No. Because in for loop the condition checked first then enter the program. But, on the validate rating values section, when user enter an input then this have to check the condition if the rating vales validate then the loop will happen again. So i use do while. So that first user enter the input then do while check the condition. In for loop this was not possible. Because there i have to enter a condition first. But, If user don't enter a input first then it would be trickty to loop the input agin if the rating values not validate.
+
+-----------------2.Ans:---------------------- -
+
+In Part 2 of the workshop, I have chosen to print the month using a ternary conditional operator (?:) construct. The ternary conditional operator is a concise way of expressing a conditional (if-else) statement in a single line. For simple conditions, the ternary operator can enhance code readability by presenting the logic in a more condensed form. This construct is straightforward and easy to understand, especially when dealing with a limited number of cases.
+
+--------------------3Ans:-------------------------- -
+
+In terms of readability, flexibility, and code maintainability, using variables and macros to represent information rather than hardcoding "magic" numbers (constant literals) has various benefits.
+Three advantages are: 
+1.Readability and Understandability: Developers reading the code can quickly understand the purpose and significance of these values without having to decipher hardcoded literals scattered throughout the code.
+2.Maintainability and Consistency: It is easier to maintain and update the code if it follows a consistent structure, making it more manageable for developers.
+3.Flexibility and Adaptability: It allows for swift adjustments without having to search and replace hardcoded values across the entire codebase.
