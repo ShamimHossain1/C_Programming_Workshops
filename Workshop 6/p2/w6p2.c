@@ -27,8 +27,8 @@ int main()
 {
     // <---------- Variables --------------->
 
-    double monthlyIncome, totalCost = 0.0;
-    int numItems, menuSelection, priorityFilter, i, months, years;
+    double monthlyIncome, totalCost = 0.0, months, years;
+    int numItems, menuSelection, priorityFilter, i;
 
     // <--- Arrays to store wish list details --->
 
@@ -131,9 +131,7 @@ int main()
     printf("---- -------- -------- -----------\n");
     printf("                      $%11.2lf\n\n", totalCost);
 
-
- // <------------------------------ Forecast Section ---------------------------------->
-
+    // <------------------------------ Forecast Section ---------------------------------->
 
     do
     {
@@ -157,10 +155,10 @@ int main()
             // <--------- Calculate Forecast ------------>
 
             months = (totalCost / monthlyIncome) + 0.5;
-            years = months / 12;
-            months %= 12;
+            years = ((int)months) / 12;
+            months = (months - (years * 12)) + 0.5; //
 
-            printf("Forecast: %d years, %d months\n", years, months);
+            printf("Forecast: %d years, %d months\n", (int)years, (int)months);
 
             // <--------- Display note if financing options are available ------------>
 
@@ -168,7 +166,7 @@ int main()
             for (i = 0; i < numItems; ++i)
             {
 
-                if (financeOption[i] == 'n' && !messagePrinted)
+                if (financeOption[i] == 'y' && !messagePrinted)
                 {
                     printf("NOTE: Financing options are available on some items.\n");
                     printf("      You can likely reduce the estimated months.\n");
@@ -200,13 +198,13 @@ int main()
 
             //<-------- Calculate priority total amount ------------>
 
-            double totalAmount;
+            double totalAmount = 0;
             int priorityFinance = 0;
             for (i = 0; i < numItems; i++)
             {
                 if (priority[i] == priorityFilter)
                 {
-                    if (financeOption[i] == 'n')
+                    if (financeOption[i] == 'y')
                     {
                         priorityFinance = 1;
                     }
@@ -222,10 +220,10 @@ int main()
             // <--------- Calculate Forecast ------------>
 
             months = (totalAmount / monthlyIncome) + 0.5;
-            years = months / 12;
-            months %= 12;
-            printf("Forecast: %d years, %d months\n", years, months);
+            years = ((int)months) / 12;
+            months = (months - (years * 12)) + 0.5; //
 
+            printf("Forecast: %d years, %d months\n", (int)years, (int)months);
 
             // <--------- Display note if financing options are available ------------>
 
