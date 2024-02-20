@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////
                                Reflection
                              Workshop - #6
-Full Name  : 
-Student ID#: 
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -10,3 +10,57 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 ///////////////////////////////////////////////////////////////////////////
 
+1 Ans: Arrays that store different data types and are arranged like the ones in my code snippet
+     double cost[MAX_WISH_LIST_ITEMS];
+    int priority[MAX_WISH_LIST_ITEMS];
+    char financeOption[MAX_WISH_LIST_ITEMS];
+are often referred to as parallel arrays or parallel vectors.
+The reason for using parallel arrays is to associate related pieces of information without
+creating a complex data structure. In this case, each array represents a different aspect
+of the wish list items: cost represents the cost of each item, priority represents the priority
+of each item, and financeOption represents the finance option chosen for each item.
+
+2 Ans: The iteration construct used in my code is the "for" loop. The "for" loop is convenient 
+when I know the number of iterations beforehand, as in the case of iterating through arrays 
+with a known size.
+Example from my code:-
+
+for (i = 0; i < numItems; ++i)
+{
+    printf("%3d  %5d    %5c    %11.2lf\n", i + 1, priority[i], financeOption[i], cost[i]);
+    totalCost += cost[i];
+}
+
+Same logic using a "while" loop:-
+
+i = 0;
+while (i < numItems)
+{
+    printf("%3d  %5d    %5c    %11.2lf\n", i + 1, priority[i], financeOption[i], cost[i]);
+    totalCost += cost[i];
+    i++;
+}
+
+Logic using  "do while" loop:-
+
+i = 0;
+do
+{
+    printf("%3d  %5d    %5c    %11.2lf\n", i + 1, priority[i], financeOption[i], cost[i]);
+    totalCost += cost[i];
+    i++;
+} while (i < numItems);
+
+The "for" loop is convenient when I know the number of iterations in advance, the "while" 
+and "do-while" loops can be used as alternatives when the loop termination condition might 
+be more complex or when I want to ensure the loop body executes at least once.
+
+3 Ans:  For testing, I manually input various scenarios, ensuring the program handled both 
+valid and invalid inputs, and tested boundary cases. I utilized print statements strategically 
+within the code to output variable values and trace program flow, aiding in identifying 
+deviations from expected behavior. Visual studio debugger help me to find the errors
+
+Compiler error messages were closely examined for syntactic issues, and logical or semantic 
+errors were addressed through careful analysis of the code's logic. Additionally, I leveraged the 
+Visual Studio environment for convenient code reviews and integrated static analysis 
+tools for potential issue identification.
