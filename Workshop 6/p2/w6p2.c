@@ -191,9 +191,7 @@ int main()
                 {
                     printf("ERROR: Invalid priority. Please enter a value between 1 and 3.\n");
                 }
-                else
-                {
-                }
+                
             } while (priorityFilter < 1 || priorityFilter > 3);
 
             //<-------- Calculate priority total amount ------------>
