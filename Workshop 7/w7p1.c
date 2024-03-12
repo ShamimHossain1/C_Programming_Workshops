@@ -15,7 +15,7 @@ piece of work is entirely of my own creation.
 #include <stdio.h>
 #define MAXIMUM_PATH 70
 
-//<----------------- Define Struct -------------------->
+// <-------------------- Define Struct ---------------------->
 
 struct PlayerInfo
 {
@@ -40,7 +40,7 @@ int main()
     printf("         Treasure Hunt!\n");
     printf("================================\n\n");
 
-    // <--------------- PLAYER Configuration --------------->
+    // <------------------- PLAYER Configuration ------------------->
 
     printf("PLAYER Configuration\n");
 
@@ -61,7 +61,7 @@ int main()
 
     printf("Player configuration set-up is complete\n\n");
 
-    //  <--------------------- GAME Configuration ------------------------>
+    // <-------------------- GAME Configuration -------------------------->
 
     printf("GAME Configuration\n");
     printf("------------------\n");
@@ -88,7 +88,7 @@ int main()
         }
     } while (game.maxMoveNum < 3 || game.maxMoveNum > 26);
 
-    //<------------------------ BOMB Placement ------------------------->
+    // <-------------------- BOMB Placement ------------------------->
 
     printf("\nBOMB Placement");
     printf("\n--------------\n");
@@ -109,7 +109,7 @@ int main()
     }
     printf("BOMB placement set\n");
 
-    // <--------------------- TREASURE Placement ----------------------->
+    // <------------------- TREASURE Placement ------------------------->
 
     printf("\nTREASURE Placement");
     printf("\n------------------\n");
