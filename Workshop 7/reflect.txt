@@ -1,0 +1,62 @@
+///////////////////////////////////////////////////////////////////////////
+                               Reflection
+                             Workshop - #7
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+Q1 Ans:  If structures were not used in this workshop, I would need to manage the data without the use of structures. This means I have to declare individual variables for each piece of information related to the player and the game. Below is the modified variable declaration without using structures:
+
+My code: 
+
+struct PlayerInfo
+{
+    int lives;
+    char char_symbol;
+    int treasureCount;
+    int positionHistory[MAXIMUM_PATH_LENGTH];
+};
+
+struct GameInfo
+{
+    int moves;
+    int pathLength;
+    int bombLocations[MAXIMUM_PATH_LENGTH];
+    int treasureLocations[MAXIMUM_PATH_LENGTH];
+};
+
+Modified:
+
+ // Player information
+    int playerLives;
+    char playerCharSymbol;
+    int playerTreasureCount;
+    int playerPositionHistory[MAXIMUM_PATH_LENGTH];
+
+    // Game information
+    int gameMoves;
+    int gamePathLength;
+    int gameBombLocations[MAXIMUM_PATH_LENGTH];
+    int gameTreasureLocations[MAXIMUM_PATH_LENGTH];
+
+Q2 Ans: In the provided code, the parallel arrays are 
+  int gameBombLocations[MAXIMUM_PATH_LENGTH];
+  int gameTreasureLocations[MAXIMUM_PATH_LENGTH];
+These arrays are used to represent the locations of bombs and treasures along the path in the game. Each element in these arrays corresponds to a position in the path, and the value at that position indicates whether there is a bomb (1) or treasure (1) at that location.
+
+Q3 Ans: The deepest nested statement in the provided code is located in lines 293-298:
+
+        if (player.positionHistory[movePosition - 1] == 1)
+        {
+            printf("===============> Dope! You've been here before!\n\n");
+            currentPosition[movePosition - 1] = 'V';
+            remainingMoves++;
+        }
+
+The code enters a loop where the player makes moves in the game path. Before the deepest nested statement is reached, there is a check to see if the player's current position has been visited before. If the player has been to the current position before, the message "Dope! You've been here before!" is printed, and the player's remaining moves are incremented.
+This logic helps to inform the player that they have revisited a position, and the game takes actions based on this information.
