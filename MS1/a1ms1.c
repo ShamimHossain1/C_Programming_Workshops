@@ -47,15 +47,15 @@ piece of work is entirely of my own creation.
 // -----------------------------------------
 // Tester Function Prototypes
 
-// void test01_inputInt(void);
-// void test02_inputIntPositive(void);
-// void test03_inputIntRange(void);
-// void test04_inputIntRange(void);
-// void test05_inputCharOption(void);
+void test01_inputInt(void);
+void test02_inputIntPositive(void);
+void test03_inputIntRange(void);
+void test04_inputIntRange(void);
+void test05_inputCharOption(void);
 void test06_inputCString(void);
 void test07_inputCString(void);
 void test08_inputCString(void);
-// void test09_displayPhone(void);
+void test09_displayPhone(void);
 
 // -----------------------------------------
 // Main: Entry-point to the application
@@ -68,21 +68,21 @@ int main(void)
     // Unit Tests:
 
     // Integer testers
-    // test01_inputInt();
-    // test02_inputIntPositive();
-    // test03_inputIntRange();
-    // test04_inputIntRange();
+    test01_inputInt();
+    test02_inputIntPositive();
+    test03_inputIntRange();
+    test04_inputIntRange();
 
-    // // Char tester
-    // test05_inputCharOption();
+    // Char tester
+    test05_inputCharOption();
 
-    // // C string testers
+    // C string testers
     test06_inputCString();
     test07_inputCString();
     test08_inputCString();
 
-    // // phone
-    // test09_displayPhone();
+    // phone
+    test09_displayPhone();
 
     printf("Assignment #1 Milestone #1 testing completed!\n");
 
@@ -93,133 +93,133 @@ int main(void)
 // -----------------------------------------
 // Tester Function Definitions
 
-// void test01_inputInt(void)
-// {
-//     int intValue = 0;
+void test01_inputInt(void)
+{
+    int intValue = 0;
 
-//     printf("TEST #1 - Instructions:\n"
-//            "1) Enter the word 'error'  [ENTER]\n"
-//            "2) Enter the number '-100' [ENTER]\n"
-//            ":>");
+    printf("TEST #1 - Instructions:\n"
+           "1) Enter the word 'error'  [ENTER]\n"
+           "2) Enter the number '-100' [ENTER]\n"
+           ":>");
 
-//     // You may want to comment the next line if you have not yet created the inputInt function:
-//     intValue = inputInt();
+    // You may want to comment the next line if you have not yet created the inputInt function:
+    intValue = inputInt();
 
-//     printf("////////////////////////////////////////\n");
-//     printf("TEST #1 RESULT: ");
-//     if (intValue == -100)
-//     {
-//         printf("*** PASS *** \n");
-//     }
-//     else
-//     {
-//         printf("### FAILED ###\n");
-//     }
-//     printf("////////////////////////////////////////\n\n");
-// }
+    printf("////////////////////////////////////////\n");
+    printf("TEST #1 RESULT: ");
+    if (intValue == -100)
+    {
+        printf("*** PASS *** \n");
+    }
+    else
+    {
+        printf("### FAILED ###\n");
+    }
+    printf("////////////////////////////////////////\n\n");
+}
 
-// void test02_inputIntPositive(void)
-// {
-//     int intValue = -1;
+void test02_inputIntPositive(void)
+{
+    int intValue = -1;
 
-//     printf("TEST #2 - Instructions:\n"
-//            "1) Enter the number '-100' [ENTER]\n"
-//            "2) Enter the number '200'  [ENTER]\n"
-//            ":>");
+    printf("TEST #2 - Instructions:\n"
+           "1) Enter the number '-100' [ENTER]\n"
+           "2) Enter the number '200'  [ENTER]\n"
+           ":>");
 
-//     // You may want to comment the next line if you have not yet created the inputIntPositive function:
-//     intValue = inputIntPositive();
+    // You may want to comment the next line if you have not yet created the inputIntPositive function:
+    intValue = inputIntPositive();
 
-//     printf("////////////////////////////////////////\n");
-//     printf("TEST #2 RESULT: ");
-//     if (intValue == 200)
-//     {
-//         printf("*** PASS *** \n");
-//     }
-//     else
-//     {
-//         printf("### FAILED ###\n");
-//     }
-//     printf("////////////////////////////////////////\n\n");
-// }
+    printf("////////////////////////////////////////\n");
+    printf("TEST #2 RESULT: ");
+    if (intValue == 200)
+    {
+        printf("*** PASS *** \n");
+    }
+    else
+    {
+        printf("### FAILED ###\n");
+    }
+    printf("////////////////////////////////////////\n\n");
+}
 
-// void test03_inputIntRange(void)
-// {
-//     int intValue = 999;
+void test03_inputIntRange(void)
+{
+    int intValue = 999;
 
-//     printf("TEST #3 - Instructions:\n"
-//            "1) Enter the word 'error' [ENTER]\n"
-//            "2) Enter the number '-4'  [ENTER]\n"
-//            "3) Enter the number '12'  [ENTER]\n"
-//            "4) Enter the number '-3'  [ENTER]\n"
-//            ":>");
+    printf("TEST #3 - Instructions:\n"
+           "1) Enter the word 'error' [ENTER]\n"
+           "2) Enter the number '-4'  [ENTER]\n"
+           "3) Enter the number '12'  [ENTER]\n"
+           "4) Enter the number '-3'  [ENTER]\n"
+           ":>");
 
-//     // You may want to comment the next line if you have not yet created the inputIntRange function:
-//     intValue = inputIntRange(-3, 11);
+    // You may want to comment the next line if you have not yet created the inputIntRange function:
+    intValue = inputIntRange(-3, 11);
 
-//     printf("////////////////////////////////////////\n");
-//     printf("TEST #3 RESULT: ");
-//     if (intValue == -3)
-//     {
-//         printf("*** PASS *** \n");
-//     }
-//     else
-//     {
-//         printf("### FAILED ###\n");
-//     }
-//     printf("////////////////////////////////////////\n\n");
-// }
+    printf("////////////////////////////////////////\n");
+    printf("TEST #3 RESULT: ");
+    if (intValue == -3)
+    {
+        printf("*** PASS *** \n");
+    }
+    else
+    {
+        printf("### FAILED ###\n");
+    }
+    printf("////////////////////////////////////////\n\n");
+}
 
-// void test04_inputIntRange(void)
-// {
-//     int intValue = 999;
+void test04_inputIntRange(void)
+{
+    int intValue = 999;
 
-//     printf("TEST #4 - Instructions:\n"
-//            "1) Enter the number '14' [ENTER]\n"
-//            ":>");
+    printf("TEST #4 - Instructions:\n"
+           "1) Enter the number '14' [ENTER]\n"
+           ":>");
 
-//     // You may want to comment the next line if you have not yet created the inputIntRange function:
-//     intValue = inputIntRange(-40, 14);
+    // You may want to comment the next line if you have not yet created the inputIntRange function:
+    intValue = inputIntRange(-40, 14);
 
-//     printf("////////////////////////////////////////\n");
-//     printf("TEST #4 RESULT: ");
-//     if (intValue == 14)
-//     {
-//         printf("*** PASS *** \n");
-//     }
-//     else
-//     {
-//         printf("### FAILED ###\n");
-//     }
-//     printf("////////////////////////////////////////\n\n");
-// }
+    printf("////////////////////////////////////////\n");
+    printf("TEST #4 RESULT: ");
+    if (intValue == 14)
+    {
+        printf("*** PASS *** \n");
+    }
+    else
+    {
+        printf("### FAILED ###\n");
+    }
+    printf("////////////////////////////////////////\n\n");
+}
 
-// void test05_inputCharOption(void)
-// {
-//     char charValue = 'x';
+void test05_inputCharOption(void)
+{
+    char charValue = 'x';
 
-//     printf("TEST #5 - Instructions:\n"
-//            "1) Enter the character 'R' [ENTER]\n"
-//            "2) Enter the character 'e' [ENTER]\n"
-//            "3) Enter the character 'p' [ENTER]\n"
-//            "4) Enter the character 'r' [ENTER]\n"
-//            ":>");
+    printf("TEST #5 - Instructions:\n"
+           "1) Enter the character 'R' [ENTER]\n"
+           "2) Enter the character 'e' [ENTER]\n"
+           "3) Enter the character 'p' [ENTER]\n"
+           "4) Enter the character 'r' [ENTER]\n"
+           ":>");
 
-//     // You may want to comment the next line if you have not yet created the inputCharOption function:
-//     charValue = inputCharOption("qwErty");
+    // You may want to comment the next line if you have not yet created the inputCharOption function:
+    charValue = inputCharOption("qwErty");
 
-//     printf("////////////////////////////////////////\n");
-//     printf("TEST #5 RESULT: ");
-//     if (charValue == 'r')
-//     {
-//         printf("*** PASS *** \n");
-//     }
-//     else
-//     {
-//         printf("### FAILED ###\n");
-//     }
-//     printf("////////////////////////////////////////\n\n");
-// }
+    printf("////////////////////////////////////////\n");
+    printf("TEST #5 RESULT: ");
+    if (charValue == 'r')
+    {
+        printf("*** PASS *** \n");
+    }
+    else
+    {
+        printf("### FAILED ###\n");
+    }
+    printf("////////////////////////////////////////\n\n");
+}
 
 void test06_inputCString(void)
 {
@@ -279,54 +279,54 @@ void test08_inputCString(void)
     printf("////////////////////////////////////////\n\n");
 }
 
-// void test09_displayPhone(void)
-// {
-//     char* phone1 = NULL;
-//     char phone2[10 + 1] = "";
-//     char phone3[10 + 1] = "1";
-//     char phone4[10 * 2] = "111333444499999999";
-//     char phone5[10 + 1] = "111222444z";
-//     char phone6[10 + 1] = "z112224444";
-//     char phone7[10 + 1] = "4161114444";
+void test09_displayPhone(void)
+{
+    char* phone1 = NULL;
+    char phone2[10 + 1] = "";
+    char phone3[10 + 1] = "1";
+    char phone4[10 * 2] = "111333444499999999";
+    char phone5[10 + 1] = "111222444z";
+    char phone6[10 + 1] = "z112224444";
+    char phone7[10 + 1] = "4161114444";
 
-//     printf("////////////////////////////////////////\n");
-//     printf("TEST #9 RESULT:\n");
-//     printf("Expecting (___)___-____ => Your result: ");
-//     // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
-//     displayFormattedPhone(phone1);
-//     putchar('\n');
+    printf("////////////////////////////////////////\n");
+    printf("TEST #9 RESULT:\n");
+    printf("Expecting (___)___-____ => Your result: ");
+    // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
+    displayFormattedPhone(phone1);
+    putchar('\n');
 
-//     printf("Expecting (___)___-____ => Your result: ");
-//     // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
-//     displayFormattedPhone(phone2);
-//     putchar('\n');
+    printf("Expecting (___)___-____ => Your result: ");
+    // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
+    displayFormattedPhone(phone2);
+    putchar('\n');
 
-//     printf("Expecting (___)___-____ => Your result: ");
-//     // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
-//     displayFormattedPhone(phone3);
-//     putchar('\n');
+    printf("Expecting (___)___-____ => Your result: ");
+    // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
+    displayFormattedPhone(phone3);
+    putchar('\n');
 
-//     printf("Expecting (___)___-____ => Your result: ");
-//     // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
-//     displayFormattedPhone(phone4);
-//     putchar('\n');
+    printf("Expecting (___)___-____ => Your result: ");
+    // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
+    displayFormattedPhone(phone4);
+    putchar('\n');
 
-//     printf("Expecting (___)___-____ => Your result: ");
-//     // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
-//     displayFormattedPhone(phone5);
-//     putchar('\n');
+    printf("Expecting (___)___-____ => Your result: ");
+    // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
+    displayFormattedPhone(phone5);
+    putchar('\n');
 
-//     printf("Expecting (___)___-____ => Your result: ");
-//     // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
-//     displayFormattedPhone(phone6);
-//     putchar('\n');
+    printf("Expecting (___)___-____ => Your result: ");
+    // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
+    displayFormattedPhone(phone6);
+    putchar('\n');
 
-//     printf("Expecting (416)111-4444 => Your result: ");
-//     // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
-//     displayFormattedPhone(phone7);
-//     printf("\n"
-//            "////////////////////////////////////////\n\n");
-// }
+    printf("Expecting (416)111-4444 => Your result: ");
+    // You may want to comment the next line if you have not yet created the displayFormattedPhone function:
+    displayFormattedPhone(phone7);
+    printf("\n"
+           "////////////////////////////////////////\n\n");
+}
 
 
 /* INPUTS:

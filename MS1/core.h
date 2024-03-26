@@ -9,3 +9,4 @@ int inputIntPositive(void);
 int inputIntRange(int lowerBound, int upperBound);
 char inputCharOption(const char *validChars);
 void inputCString(char *str, int minLength, int maxLength);
+void displayFormattedPhone(const char *phoneNumber);

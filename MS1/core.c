@@ -40,12 +40,12 @@ int inputInt(void)
 int inputIntPositive(void)
 {
     int input;
-    char nextChar;
+    char newline;
 
     do
     {
 
-        if (scanf("%d%c", &input, &nextChar) != 2 || nextChar != '\n' || input <= 0)
+        if (scanf("%d%c", &input, &newline) != 2 || newline != '\n' || input <= 0)
         {
             clearInputBuffer();
             printf("ERROR! Value must be > 0: ");
@@ -58,12 +58,12 @@ int inputIntPositive(void)
 int inputIntRange(int lowerBound, int upperBound)
 {
     int input;
-    char nextChar;
+    char newline;
 
     do
     {
 
-        if (scanf("%d%c", &input, &nextChar) != 2 || nextChar != '\n')
+        if (scanf("%d%c", &input, &newline) != 2 || newline != '\n')
         {
             clearInputBuffer();
             printf("Error! Input a whole number: ");
@@ -72,7 +72,7 @@ int inputIntRange(int lowerBound, int upperBound)
         {
             printf("ERROR! Value must be between %d and %d inclusive: ", lowerBound, upperBound);
         }
-    } while (input < lowerBound || input > upperBound || nextChar != '\n');
+    } while (input < lowerBound || input > upperBound || newline != '\n');
 
     return input;
 }
@@ -140,4 +140,33 @@ void inputCString(char *str, int minLength, int maxLength)
             printf("ERROR: String length must be between %d and %d chars: ", minLength, maxLength);
         }
     } while (length < minLength || length > maxLength);
+}
+
+void displayFormattedPhone(const char *phoneNumber)
+{
+    if (phoneNumber == NULL) {
+        printf("(___)___-____");
+        return;
+    }
+
+    int length = 0;
+    while (phoneNumber[length] != '\0') {
+        length++;
+    }
+    
+    if (length != 10) {
+        printf("(___)___-____");
+        return;
+    }
+    
+    for (int i = 0; i < length; i++) {
+        if (phoneNumber[i] < '0' || phoneNumber[i] > '9') {
+            printf("(___)___-____");
+            return;
+        }
+    }
+    
+    printf("(%c%c%c)%c%c%c-%c%c%c%c", phoneNumber[0], phoneNumber[1], phoneNumber[2],
+           phoneNumber[3], phoneNumber[4], phoneNumber[5], phoneNumber[6],
+           phoneNumber[7], phoneNumber[8], phoneNumber[9]);
 }
