@@ -3,10 +3,10 @@
 
 /*/////////////////////////////////////////////////////////////////////////
                         Assignment 1 - Milestone 1
-Full Name  :
-Student ID#:
-Email      :
-Section    :
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+Email      : shsrabon@myseneca.ca
+Section    : NHH
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -14,19 +14,18 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 /////////////////////////////////////////////////////////////////////////*/
 
-
 // ----------------------------------------------------------------------------
 // (Do not copy the below)
 // ----------------------------------------------------------------------------
 
 // ############################################################################
 //
-//  Assignment:  1 
+//  Assignment:  1
 //  Milestone:   1
 //  Description: Main tester
 //
 // +---------------------------------------------------------+
-// | *** The contents of this file is NOT to be modified *** |    
+// | *** The contents of this file is NOT to be modified *** |
 // +---------------------------------------------------------+
 //
 //                         HOWEVER....
@@ -37,7 +36,7 @@ piece of work is entirely of my own creation.
 //   (See each tester function definition to see where you can do this)
 // - Uncomment the lines of code previously commented to return the file to its
 //   original state so you may fully test your solution.
-// 
+//
 // ############################################################################
 
 #include <stdio.h>
@@ -88,7 +87,6 @@ int main(void)
 
     return 0;
 }
-
 
 // -----------------------------------------
 // Tester Function Definitions
@@ -223,13 +221,13 @@ void test05_inputCharOption(void)
 
 void test06_inputCString(void)
 {
-    char cstringValue[7] = { '\0' };
+    char cstringValue[7] = {'\0'};
 
     // Test explicit string length
     printf("TEST #6: - Instructions:\n"
-           "1) Enter the word 'horse'   [ENTER]\n"  // too short
-           "2) Enter the word 'chicken' [ENTER]\n"  // too long
-           "3) Enter the word 'SENECA'  [ENTER]\n"  // just right
+           "1) Enter the word 'horse'   [ENTER]\n" // too short
+           "2) Enter the word 'chicken' [ENTER]\n" // too long
+           "3) Enter the word 'SENECA'  [ENTER]\n" // just right
            ":>");
 
     // You may want to comment the next line if you have not yet created the inputCString function:
@@ -243,7 +241,7 @@ void test06_inputCString(void)
 
 void test07_inputCString(void)
 {
-    char cstringValue[7] = { '\0' };
+    char cstringValue[7] = {'\0'};
 
     // Test range of string length (shortest allowed)
     printf("TEST #7: - Instructions:\n"
@@ -262,7 +260,7 @@ void test07_inputCString(void)
 
 void test08_inputCString(void)
 {
-    char cstringValue[7] = { '\0' };
+    char cstringValue[7] = {'\0'};
 
     // Test range of string length (longest allowed)
     printf("TEST #8: - Instructions:\n"
@@ -281,7 +279,7 @@ void test08_inputCString(void)
 
 void test09_displayPhone(void)
 {
-    char* phone1 = NULL;
+    char *phone1 = NULL;
     char phone2[10 + 1] = "";
     char phone3[10 + 1] = "1";
     char phone4[10 * 2] = "111333444499999999";
@@ -327,7 +325,6 @@ void test09_displayPhone(void)
     printf("\n"
            "////////////////////////////////////////\n\n");
 }
-
 
 /* INPUTS:
 error

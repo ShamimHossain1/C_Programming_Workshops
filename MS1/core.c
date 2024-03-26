@@ -1,3 +1,15 @@
+/*/////////////////////////////////////////////////////////////////////////
+                        Assignment 1 - Milestone 1
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+Email      : shsrabon@myseneca.ca
+Section    : NHH
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+/////////////////////////////////////////////////////////////////////////*/
 #include <stdio.h>
 #include "core.h"
 
@@ -31,7 +43,7 @@ int inputInt(void)
         if (scanf("%d%c", &input, &newline) != 2 || newline != '\n')
         {
             clearInputBuffer(); // Clear invalid input
-            printf("Error! Please input a valid whole number: ");
+            printf("Error! Input a whole number: ");
         }
     } while (newline != '\n');
 
@@ -40,14 +52,15 @@ int inputInt(void)
 int inputIntPositive(void)
 {
     int input;
-    char newline;
 
     do
     {
+        scanf("%d", &input);
+        clearInputBuffer();
 
-        if (scanf("%d%c", &input, &newline) != 2 || newline != '\n' || input <= 0)
+        if (input <= 0)
         {
-            clearInputBuffer();
+
             printf("ERROR! Value must be > 0: ");
         }
     } while (input <= 0);
@@ -144,28 +157,33 @@ void inputCString(char *str, int minLength, int maxLength)
 
 void displayFormattedPhone(const char *phoneNumber)
 {
-    if (phoneNumber == NULL) {
+    if (phoneNumber == NULL)
+    {
         printf("(___)___-____");
         return;
     }
 
     int length = 0;
-    while (phoneNumber[length] != '\0') {
+    while (phoneNumber[length] != '\0')
+    {
         length++;
     }
-    
-    if (length != 10) {
+
+    if (length != 10)
+    {
         printf("(___)___-____");
         return;
     }
-    
-    for (int i = 0; i < length; i++) {
-        if (phoneNumber[i] < '0' || phoneNumber[i] > '9') {
+    int i;
+    for (i = 0; i < length; i++)
+    {
+        if (phoneNumber[i] < '0' || phoneNumber[i] > '9')
+        {
             printf("(___)___-____");
             return;
         }
     }
-    
+
     printf("(%c%c%c)%c%c%c-%c%c%c%c", phoneNumber[0], phoneNumber[1], phoneNumber[2],
            phoneNumber[3], phoneNumber[4], phoneNumber[5], phoneNumber[6],
            phoneNumber[7], phoneNumber[8], phoneNumber[9]);
