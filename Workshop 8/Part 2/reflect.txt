@@ -1,0 +1,110 @@
+*****************************************************************************
+                               Reflection
+                             Workshop - #8
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+Ans 1: The convertLbsKg function currently returns a value in two different ways: by directly returning the result 
+of the conversion and by assigning the result to the pointer argument conversionResultToKg if it's not NULL. This 
+allows the caller to either use the return value or obtain the result through a pointer.
+
+Here's how each return method works:
+Direct return: The function calculates the conversion from pounds to kilograms by dividing the input value by the 
+conversion factor. It then returns this calculated value directly.
+
+Pointer assignment: If the pointer conversionResultToKg is not NULL, the function assigns the calculated result to the 
+memory location pointed to by conversionResultToKg so that the caller can retrieve the result using this pointer.
+
+To revise this function into two separate functions, one for each return method, I can create the following function 
+prototypes:
+
+Function prototype for directly returning the result of pounds to kilograms conversion:
+
+double convertLbsKg(const double pounds);
+
+Function prototype for assigning the result of pounds to kilograms conversion to a pointer:
+
+void convertLbsKgWithPointer(const double pounds, double* conversionResultToKg);
+
+And here are the revised functions:
+ Function definition for directly returning the result of pounds to kilograms conversion:
+
+double convertLbsKg(const double pounds) {
+    return pounds / POUNDSTOKG;
+}
+
+Function definition for assigning the result of pounds to kilograms conversion to a pointer: 
+
+void convertLbsKgWithPointer(const double pounds, double* conversionResultToKg) {
+    if (conversionResultToKg != NULL) {
+        *conversionResultToKg = pounds / POUNDSTOKG;
+    }
+}
+
+Ans 2: In this workshop, several functions exhibit high cohesion and loose coupling.
+
+getCatFoodInfo Function:
+
+High Cohesion: This function is responsible for getting input details of a cat food product. It handles the input process for 
+SKU, price, weight, and calories per serving.
+Loose Coupling: This function is loosely coupled because it does not directly depend on other functions to perform its task. 
+It encapsulates the logic for gathering cat food information independently.
+
+calculateReportData Function:
+
+High Cohesion: This function calculates various data for reporting purposes, such as converting weight units, calculating 
+servings, and determining cost per serving and cost per calorie.
+Loose Coupling: It is loosely coupled because it does not directly interact with user input or output operations. It relies on 
+input data provided by getCatFoodInfo function but does not tightly integrate with it.
+
+start Function:
+
+High Cohesion: The start function serves as the main entry point for the program logic. It orchestrates the workflow by 
+calling other functions to gather input, perform calculations, and display results.
+Loose Coupling: While start function calls other functions to accomplish its tasks, it does not tightly couple with them. It 
+remains independent of the specific implementation details of the functions it calls.
+
+Utility Functions (getIntPositive, getDoublePositive, etc.):
+
+High Cohesion: Each utility function serves a specific purpose, such as getting positive integer or double inputs from the user.
+Loose Coupling: These utility functions are loosely coupled as they do not rely on each other to perform their tasks. They can 
+be used independently in different parts of the program.
+
+Ans 3: Using header files (.h) in conjunction with corresponding source code files (.c) in the provided workshop enhances code 
+modularity, encapsulation, organization, and maintainability. By separating function declarations in header files from their 
+implementations in source files, developers can clearly define interfaces while hiding implementation details, facilitating code 
+reuse and collaboration. This design promotes readability, documentation, and compilation management, allowing for efficient 
+development and maintenance of the application by providing a clear structure and well-defined interfaces for interaction 
+among different modules of the codebase.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
