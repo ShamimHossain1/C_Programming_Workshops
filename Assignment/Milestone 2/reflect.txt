@@ -1,0 +1,38 @@
+/*/////////////////////////////////////////////////////////////////////////
+                        Assignment 1 - Milestone 2
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+Email      : shsrabon@myseneca.ca
+Section    : NHH
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+/////////////////////////////////////////////////////////////////////////*/
+
+
+
+1. Naming conventions for modules and libraries are crucial for clarity and maintainability.
+By choosing descriptive names, developers can quickly understand the purpose and functionality 
+of a module. In this assignment, the 'clinic' module is aptly named to signify its role in managing 
+patient data. Consistency in naming conventions, such as using the same base name for header 
+and source files, enhances code organization and makes it easier to locate related files. For example, 
+in this assignment, we have 'clinic.h' and 'clinic.c' for the clinic module, which clearly indicate their association.
+
+2. The decision to maintain separate modules, such as 'core' and 'clinic,' instead of merging them 
+into a single module, is driven by modularity and code organization principles. Each module serves 
+a distinct purpose and encapsulates related functionality. The 'core' module houses utility functions 
+and common data structures that are reusable across different components of the application. On 
+the other hand, the 'clinic' module focuses specifically on managing patient data. Separating these 
+concerns into distinct modules promotes code reusability, maintainability, and readability. Combining 
+them into a single module would result in a monolithic and less manageable codebase.
+
+3. Splitting a module into header and implementation files offers several advantages. The header file 
+serves as an interface to the module, providing declarations of functions, data structures, and macros 
+that are accessible to other parts of the program. By separating interface from implementation, header 
+files establish an abstraction barrier, hiding internal details of the module's implementation. This division 
+facilitates modularity, as changes to the module's implementation can be made without affecting other 
+parts of the program. In this assignment, the 'clinic.h' header file declares function prototypes, data 
+structures, and macros, while the 'clinic.c' implementation file defines the actual logic for those functions. 
+This clear separation aids in code organization and readability.

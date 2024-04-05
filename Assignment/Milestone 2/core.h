@@ -37,7 +37,7 @@ piece of work is entirely of my own creation.
 // USER INTERFACE FUNCTIONS
 //////////////////////////////////////
 
-void displayFormattedPhone(const char *phoneNumber);
+
 
 // Clear the standard input buffer
 void clearInputBuffer(void);
@@ -61,6 +61,7 @@ int inputIntPositive(void);
 int inputIntRange(int lowerBound, int upperBound);
 char inputCharOption(const char *validChars);
 void inputCString(char *str, int minLength, int maxLength);
+void displayFormattedPhone(const char *phoneNumber);
 
 
 

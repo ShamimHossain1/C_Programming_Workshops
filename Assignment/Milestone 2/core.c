@@ -12,7 +12,7 @@ piece of work is entirely of my own creation.
 /////////////////////////////////////////////////////////////////////////*/
 #include <stdio.h>
 #include "core.h"
-
+#include <string.h>
 // As demonstrated in the course notes:
 // https://intro2c.sdds.ca/D-Modularity/input-functions#clearing-the-buffer
 // Clear the standard input buffer
