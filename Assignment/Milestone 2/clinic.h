@@ -1,9 +1,9 @@
 /*/////////////////////////////////////////////////////////////////////////
                         Assignment 1 - Milestone 2
-Full Name  :
-Student ID#:
-Email      :
-Section    :
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+Email      : shsrabon@myseneca.ca
+Section    : NHH
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
