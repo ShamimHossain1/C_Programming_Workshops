@@ -1,9 +1,9 @@
 /*/////////////////////////////////////////////////////////////////////////
                         Assignment 1 - Milestone 3
-Full Name  :
-Student ID#:
-Email      :
-Section    :
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+Email      : shsrabon@myseneca.ca
+Section    : NHH
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -36,6 +36,9 @@ piece of work is entirely of my own creation.
 
 // MS#3 Additional macro's:
 // ToDo:
+#define MINUTE_INTERVAL 30
+#define START_HOUR 10
+#define END_HOUR 14
 
 
 //////////////////////////////////////
@@ -43,25 +46,41 @@ piece of work is entirely of my own creation.
 //////////////////////////////////////
 
 // Data type: Phone
-// (Copy your code from MS#2)
-
+// ToDo:
+struct Phone {
+    char description[PHONE_DESC_LEN + 1];
+    char number[PHONE_LEN + 1];
+};
 
 // Data type: Patient 
-// (Copy your code from MS#2)
+// ToDo:
+struct Patient {
+    int patientNumber;
+    char name[NAME_LEN];
+    struct Phone phone;
+};
 
 // ------------------- MS#3 -------------------
 
 // Data type: Time
 // ToDo:
-
+struct Time {
+    int hour, min;
+};
 
 // Data type: Date
 // ToDo:
-
+struct Date {
+    int day, year, month;
+};
 
 // Data type: Appointment
 // ToDo:
-
+struct Appointment {
+    int patientNumber;
+    struct Date date;
+    struct Time time;
+};
 
 
 // ClinicData type: Provided to student
@@ -133,20 +152,19 @@ void removePatient(struct Patient patient[], int max);
 
 // View ALL scheduled appointments
 // Todo:
-
+void viewAllAppointments(struct ClinicData* data);
 
 // View appointment schedule for the user input date
 // Todo:
+void viewAppointmentSchedule(struct ClinicData* data);
 
-
-// Add an appointment record to the appointment array
+// Add an appointment record to the appointment arra
 // Todo:
-
+void addAppointment(struct Appointment *app, int, struct Patient *pt, int);
 
 // Remove an appointment record from the appointment array
 // Todo:
-
-
+void removeAppointment(struct Appointment *app, int, struct Patient *pt, int);
 
 //////////////////////////////////////
 // UTILITY FUNCTIONS

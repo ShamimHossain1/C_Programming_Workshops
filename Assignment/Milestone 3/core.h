@@ -1,9 +1,9 @@
 /*/////////////////////////////////////////////////////////////////////////
                         Assignment 1 - Milestone 3
-Full Name  :
-Student ID#:
-Email      :
-Section    :
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+Email      : shsrabon@myseneca.ca
+Section    : NHH
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -48,6 +48,12 @@ void suspend(void);
 // USER INPUT FUNCTIONS
 //////////////////////////////////////
 
+int inputInt(void);
+int inputIntPositive(void);
+int inputIntRange(int lowerBound, int upperBound);
+char inputCharOption(const char *validChars);
+void inputCString(char *str, int minLength, int maxLength);
+void displayFormattedPhone(const char *phoneNumber);
 
 
 

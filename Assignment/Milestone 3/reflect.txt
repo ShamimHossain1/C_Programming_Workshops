@@ -1,0 +1,147 @@
+/*/////////////////////////////////////////////////////////////////////////
+                        Assignment 1 - Milestone 3
+Full Name  : Shamim Hossain Srabon
+Student ID#: 135646230
+Email      : shsrabon@myseneca.ca
+Section    : NHH
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+/////////////////////////////////////////////////////////////////////////*/
+
+
+
+1. Here are two code snippets from Milestone 1 where the string library functions can replace custom code:
+
+1. Original Code:
+
+// Code to calculate the length of a string
+void inputCString(char *str, int minLength, int maxLength)
+{
+    int length;
+    do
+    {
+        scanf(" %[^\n]", str);
+        clearInputBuffer();
+
+        // Calculate length
+        length = 0;
+        while (str[length] != '\0')
+        {
+            length++;
+        }
+
+        // Check length constraints
+        if (minLength == maxLength && (length < minLength || length > maxLength))
+        {
+            printf("ERROR: String length must be exactly %d chars: ", minLength);
+        }
+        else if (length > maxLength)
+        {
+            printf("ERROR: String length must be no more than %d chars: ", maxLength);
+        }
+        else if (length < minLength)
+        {
+            printf("ERROR: String length must be between %d and %d chars: ", minLength, maxLength);
+        }
+    } while (length < minLength || length > maxLength);
+}
+
+
+Using String Library:
+
+#include <string.h>
+
+// Replacing the custom length calculation with strlen() from string.h
+void inputCString(char *str, int minLength, int maxLength)
+{
+    do
+    {
+        scanf(" %[^\n]", str);
+        clearInputBuffer();
+
+        // Calculate length using strlen()
+        int length = strlen(str);
+
+        // Check length constraints
+        if (minLength == maxLength && (length < minLength || length > maxLength))
+        {
+            printf("ERROR: String length must be exactly %d chars: ", minLength);
+        }
+        else if (length > maxLength)
+        {
+            printf("ERROR: String length must be no more than %d chars: ", maxLength);
+        }
+        else if (length < minLength)
+        {
+            printf("ERROR: String length must be between %d and %d chars: ", minLength, maxLength);
+        }
+    } while (strlen(str) < minLength || strlen(str) > maxLength);
+}
+```
+
+Benefits of Using String Library Functions:
+Simplicity: The code is made shorter and easier to read by utilizing the string library's strlen() function. The replacement of the custom loop used to calculate the string length with a single function call enhances the readability and maintainability of the code.
+
+Efficiency: String library functions are usually efficient and well-optimized, which can result in gains in performance. In comparison to custom implementations, strlen(), a commonly used function, offers better runtime performance thanks to optimizations for quicker execution. Additionally, because library functions are well-tested and standardized across various platforms, using them can lessen the chance of errors and bugs. In general, the efficiency and quality of the code when handling string operations are improved by integrating string library functions.
+
+2. The two string copy library functions are `strcpy` and `strncpy`. 
+
+    1. `strcpy`: This function is used to copy a string from one location to another until it encounters a null terminator. It does not provide any limit on the number of characters to copy, which can be risky if the source string is longer than the destination buffer. Its signature is: `char *strcpy(char *dest, const char *src);`
+
+    2. `strncpy`: This function is similar to `strcpy`, but it allows to specify the maximum number of characters to copy from the source string. This provides a safety feature, preventing buffer overflow if the source string is longer than the specified limit. Its signature is: `char *strncpy(char *dest, const char *src, size_t n);`
+
+In C programming, `strncpy` is generally preferred over `strcpy` when dealing with potentially unsafe string copying operations where buffer overflow might occur. It's crucial for ensuring the integrity of the program's memory and preventing vulnerabilities like buffer overflows.
+
+In the provided code blew, `strncpy` used in the `inputPhoneData` function to copy the phone number input into the `phone->number` array.
+
+void inputPhoneData(struct Phone* phone) {
+    int choice;
+    char inputNumber[PHONE_LEN + 1];
+    
+
+
+    switch (choice)
+    {
+
+        case 1:
+        case 2:
+        case 3:
+
+            printf("Number : ");
+            fgets(inputNumber, sizeof(inputNumber), stdin);
+            strncpy(phone->number, inputNumber, PHONE_LEN); // Using strncpy here
+
+            printf("\n");
+            break;
+
+        default:
+           
+            break;
+    }
+}
+
+
+In this code, `strncpy` is used to copy the phone number from the input buffer `inputNumber` to the `phone->number` array, limiting the copying to `PHONE_LEN` characters to prevent buffer overflow. This ensures that the destination buffer is not overflowed with characters beyond its capacity, making the operation safer.
+
+3. To keep the list of appointments in ascending order based on the appointment's date/time, I implemented a sorting mechanism in both the `viewAllAppointments()` and `viewAppointmentSchedule()` functions. Here's how it works:
+
+    1. **Sorting Mechanism**: Before displaying the appointments, I sort the array of appointments based on their date and time. This ensures that appointments are listed in chronological order.
+
+    2. **Sorting Algorithm**: In the `viewAllAppointments()` and `viewAppointmentSchedule()` functions, I used a simple sorting algorithm to arrange the appointments in ascending order. This algorithm compares each appointment with the next one and swaps them if they are not in the correct order. I chose a simple sorting algorithm like bubble sort or selection sort due to its simplicity and ease of implementation.
+
+    3. **Comparing Dates and Times**: When sorting the appointments, I compare the dates and times of appointments to determine their order. I first compare the years, then months, then days, and finally hours and minutes. This ensures that appointments are sorted based on their chronological order.
+
+Improvement Opportunities:
+
+    1. **Optimized Sorting Algorithm**: While bubble sort or selection sort is simple to implement, they may not be the most efficient for large datasets. Using more efficient sorting algorithms like quicksort or mergesort could improve the performance, especially for a large number of appointments.
+
+    2. **Data Structures**: Instead of sorting the appointments array every time we need to display them, we could consider using more efficient data structures like binary search trees (BSTs) or heaps. These data structures offer better time complexity for insertion and retrieval operations, which could improve the overall efficiency.
+
+    3. **Caching or Memoization**: If appointments don't change frequently, we could implement caching or memoization techniques to store the sorted list of appointments temporarily. This way, we avoid sorting the appointments array repeatedly, improving performance.
+
+    4. **Error Handling**: It's essential to handle errors gracefully, especially when dealing with user input and file operations. Adding robust error handling mechanisms can enhance the reliability and usability of the program.
+
+By incorporating these improvements, we can make the appointment scheduling system more efficient, scalable, and reliable.
