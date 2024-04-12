@@ -126,22 +126,22 @@ void inputPhoneData(struct Phone* phone) {
 
 In this code, `strncpy` is used to copy the phone number from the input buffer `inputNumber` to the `phone->number` array, limiting the copying to `PHONE_LEN` characters to prevent buffer overflow. This ensures that the destination buffer is not overflowed with characters beyond its capacity, making the operation safer.
 
-3. To keep the list of appointments in ascending order based on the appointment's date/time, I implemented a sorting mechanism in both the `viewAllAppointments()` and `viewAppointmentSchedule()` functions. Here's how it works:
+3. I included a sorting mechanism in the `viewAllAppointments()` and `viewAppointmentSchedule()` functions to maintain the list of appointments in ascending order according to the date and time of the appointment. This is how it operates:
 
-    1. **Sorting Mechanism**: Before displaying the appointments, I sort the array of appointments based on their date and time. This ensures that appointments are listed in chronological order.
+    1. Sorting Mechanism: I arrange the array of appointments according to their date and time before displaying them. This guarantees that the appointments are listed in the order they were made.
 
-    2. **Sorting Algorithm**: In the `viewAllAppointments()` and `viewAppointmentSchedule()` functions, I used a simple sorting algorithm to arrange the appointments in ascending order. This algorithm compares each appointment with the next one and swaps them if they are not in the correct order. I chose a simple sorting algorithm like bubble sort or selection sort due to its simplicity and ease of implementation.
+    2. Sorting Algorithm: To arrange the appointments in ascending order, I used a basic sorting algorithm in the `viewAllAppointments()` and `viewAppointmentSchedule()` functions. Each appointment is compared to the next by this algorithm, which switches them if they are not in the right order. Because they are straightforward and easy to use, I went with a basic sorting algorithm like bubble sort or selection sort.
+ 
+    3. Comparing Dates and Times: To establish the order of the appointments, I compare their dates and times when organizing them. I compare the years, months, days, hours, and minutes in order of preference. By doing this, it is ensured that appointments are arranged in chronological order.
 
-    3. **Comparing Dates and Times**: When sorting the appointments, I compare the dates and times of appointments to determine their order. I first compare the years, then months, then days, and finally hours and minutes. This ensures that appointments are sorted based on their chronological order.
+Possibilities for Improvement:
 
-Improvement Opportunities:
+    1. Optimal Sorting Algorithm: Bubble sort and selection sort are easy to use, but they might not be the best for big datasets. Performance could be enhanced by using more effective sorting algorithms, such as quicksort or mergesort, particularly when there are a lot of appointments.
 
-    1. **Optimized Sorting Algorithm**: While bubble sort or selection sort is simple to implement, they may not be the most efficient for large datasets. Using more efficient sorting algorithms like quicksort or mergesort could improve the performance, especially for a large number of appointments.
+    2. Data Structures: We should think about utilizing more effective data structures like heaps or binary search trees (BSTs) in place of sorting the appointments array each time we need to display the appointments. Better time complexity for insertion and retrieval operations is provided by these data structures, which may increase overall efficiency.
 
-    2. **Data Structures**: Instead of sorting the appointments array every time we need to display them, we could consider using more efficient data structures like binary search trees (BSTs) or heaps. These data structures offer better time complexity for insertion and retrieval operations, which could improve the overall efficiency.
+    3. Caching or Memoization: We can use techniques like caching or memoization to temporarily store the sorted list of appointments if they don't change very often. By doing this, we can improve performance by avoiding having to repeatedly sort the appointments array.
 
-    3. **Caching or Memoization**: If appointments don't change frequently, we could implement caching or memoization techniques to store the sorted list of appointments temporarily. This way, we avoid sorting the appointments array repeatedly, improving performance.
+    4. Error Handling: When working with user input and file operations in particular, it's critical to handle errors with grace. Enhancing the program's usability and reliability can be achieved by incorporating strong error handling mechanisms.
 
-    4. **Error Handling**: It's essential to handle errors gracefully, especially when dealing with user input and file operations. Adding robust error handling mechanisms can enhance the reliability and usability of the program.
-
-By incorporating these improvements, we can make the appointment scheduling system more efficient, scalable, and reliable.
+We can increase the effectiveness, scalability, and dependability of the appointment scheduling system by implementing these enhancements.

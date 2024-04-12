@@ -38,7 +38,6 @@ void suspend(void)
     putchar('\n');
 }
 
-
 //////////////////////////////////////
 // USER INPUT FUNCTIONS
 //////////////////////////////////////
@@ -204,9 +203,6 @@ void displayFormattedPhone(const char *phoneNumber)
 // - Organize your functions in the same order as they are listed in the core.h file
 //
 
-
-
 //////////////////////////////////////
 // UTILITY FUNCTIONS
 //////////////////////////////////////
-

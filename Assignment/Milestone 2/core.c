@@ -194,4 +194,3 @@ void displayFormattedPhone(const char *phoneNumber)
 // - Organize your functions in the same order as they are listed in the core.h file
 // - Also copy the commented "sections" to help with finding functions quickly!
 //
-
