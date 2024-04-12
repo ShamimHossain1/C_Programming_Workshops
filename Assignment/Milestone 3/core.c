@@ -14,11 +14,9 @@ piece of work is entirely of my own creation.
 
 #include <stdio.h>
 
-#include "core.h"
-
-//////////////////////////////////////
-// USER INTERFACE FUNCTIONS
-//////////////////////////////////////
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
 
 // Clear the standard input buffer
 void clearInputBuffer(void)
@@ -30,179 +28,211 @@ void clearInputBuffer(void)
     }
 }
 
-// Wait for user to input the "enter" key to continue
+// Wait for user to input the "enter" key to continue 
 void suspend(void)
 {
-    printf("<ENTER> to continue...");
+    printf("<ENTER> to continue...\n");
     clearInputBuffer();
-    putchar('\n');
+   
 }
+// This function guarantees that an integer value is entered and returned. If an invalid value is entered, an error message would be displayed.
+int inputInt(void) {
+    char character = ' ';
+    int value;
 
-//////////////////////////////////////
-// USER INPUT FUNCTIONS
-//////////////////////////////////////
+    do {
+        scanf("%d%c", &value, &character);
 
-int inputInt(void)
-{
-    int input;
-    char newline;
-
-    do
-    {
-
-        if (scanf("%d%c", &input, &newline) != 2 || newline != '\n')
-        {
-            clearInputBuffer(); // Clear invalid input
+        if (character != '\n') {
+            clearInputBuffer();
             printf("Error! Input a whole number: ");
         }
-    } while (newline != '\n');
+    }
+    while (character != '\n');
 
-    return input;
+    // If the character after the integer is a new line character that means an appropriate value was entered
+    return value;
 }
-int inputIntPositive(void)
-{
-    int input;
 
-    do
-    {
-        scanf("%d", &input);
-        clearInputBuffer();
+// This function guarantees a positive integer value is entered and returned. If a zero or a negative value in entered, an error message would be displayed.
+int inputIntPositive(void) {
+    char character = ' ';
+    int value;
 
-        if (input <= 0)
-        {
+    do {
+        scanf("%d%c", &value, &character);
 
+        if (character != '\n') {
+            clearInputBuffer();
+            printf("Error! Input a number: ");
+        }
+
+        if (value <= 0) {
             printf("ERROR! Value must be > 0: ");
         }
-    } while (input <= 0);
+    }
+    while (value <= 0);
 
-    return input;
+    // After checks are completed we can return the value
+    return value;
 }
 
-int inputIntRange(int lowerBound, int upperBound)
-{
-    int input;
-    char newline;
+// This function guarantees that an integer value is entered within the range (inclusive) and returned. If a value from outside the range is entered, display an error message and continue to prompt until a value in the given range is entered.
+int inputIntRange(int lowerBound, int upperBound) {
+    char character = ' ';
+    int value;
 
-    do
-    {
+    do {
+        scanf("%d%c", &value, &character);
 
-        if (scanf("%d%c", &input, &newline) != 2 || newline != '\n')
-        {
+        if (character != '\n') {
             clearInputBuffer();
             printf("Error! Input a whole number: ");
         }
-        else if (input < lowerBound || input > upperBound)
-        {
+
+        else if (!(value <= upperBound && value >= lowerBound)) {
             printf("ERROR! Value must be between %d and %d inclusive: ", lowerBound, upperBound);
         }
-    } while (input < lowerBound || input > upperBound || newline != '\n');
+    }
+    while (!(value <= upperBound && value >= lowerBound));
 
-    return input;
+    // After checks are completed we can return the value
+    return value;
 }
 
-char inputCharOption(const char *validChars)
-{
+// This function guarantees a single character value is entered within the list of valid characters and returned. If an entered character is not in the list of valid characters, display an error message and prompt again.
+char inputCharOption(char str[]) {
+    int i, count = 0;
     char input;
-    int isValid = 0;
 
-    do
-    {
-
+    do {
         scanf(" %c", &input);
 
-        const char *ptr = validChars;
-        while (*ptr != '\0')
-        {
-            if (*ptr == input)
-            {
-                isValid = 1;
-                break;
+        for (i = 0; str[i] != '\0'; i++) {
+            if (input == str[i]) {
+                count++;
             }
-            ptr++;
         }
 
-        if (!isValid)
-        {
-            clearInputBuffer();
-            printf("ERROR: Character must be one of [%s]: ", validChars);
+        if (count == 0) {
+            printf("ERROR: Character must be one of [%s]: ", str);
         }
+    } while (count == 0);
 
-    } while (!isValid);
-
+    // After all checks are passed we will return the input value
+    clearInputBuffer();
     return input;
 }
 
-void inputCString(char *str, int minLength, int maxLength)
-{
-    int length;
-    do
-    {
+// This function guarantees a C string value is entered containing the number of characters within the range specified by the 2nd and 3rd arguments.
+void inputCString(char* str, int minChar, int maxChar) {
+    int flag = 1;
+    char ch = 'a';
 
-        scanf(" %[^\n]", str);
-        clearInputBuffer();
+    while (flag) {
+        int len = 0;
+        // Takes a string as input until it sees a newline character
+        while (ch != '\n' && len <= maxChar) {
+            ch = getchar();
+            str[len] = ch;
+            len++;
+        };
 
-        // Calculate length
-        length = 0;
-        while (str[length] != '\0')
-        {
-            length++;
+        // If the string is less than or equal to the maxChars we will just add '\0' to the end to mark the end of the string
+        if (ch == '\n' && len <= (maxChar + 1)) {
+            len--;
+            str[len] = '\0';
+        }
+        // If length is more than maxChar, we will add '\0' to the end and ignore the extra characters. We will also remove the extra characters from the buffer.
+        else {
+            str[maxChar] = '\0';
+            clearInputBuffer();
         }
 
-        if (minLength == maxLength && (length < minLength || length > maxLength))
-        {
-
-            printf("ERROR: String length must be exactly %d chars: ", minLength);
+        if (minChar == maxChar && len != minChar) {
+            printf("ERROR: String length must be exactly %d chars: ", minChar);
+            ch = 'a';
         }
-        else if (length > maxLength)
-        {
-
-            printf("ERROR: String length must be no more than %d chars: ", maxLength);
+        else if (len < minChar || len > maxChar) {
+            if (len > maxChar) {
+                printf("ERROR: String length must be no more than %d chars: ", maxChar);
+                ch = 'a';
+            }
+            else if (len < minChar) {
+                printf("ERROR: String length must be between %d and %d chars: ", minChar, maxChar);
+                ch = 'a';
+            }
         }
-        else if (length < minLength)
-        {
-            printf("ERROR: String length must be between %d and %d chars: ", minLength, maxLength);
+        else {
+            flag = 0;
         }
-    } while (length < minLength || length > maxLength);
+    }
 }
 
-void displayFormattedPhone(const char *phoneNumber)
-{
-    if (phoneNumber == NULL)
-    {
-        printf("(___)___-____");
-        return;
-    }
+// This function is the same as inputCString but is exclusively for numbers
+void inputCStringNumbers(char* str, int minChar, int maxChar) {
+    int flag = 1;
+    char ch = 'a';
 
-    int length = 0;
-    while (phoneNumber[length] != '\0')
-    {
-        length++;
-    }
+    while (flag) {
+        int len = 0;
+        // Takes a string as input until it sees a newline character
+        while (ch != '\n' && len <= maxChar) {
+            ch = getchar();
+            str[len] = ch;
+            len++;
+        };
 
-    if (length != 10)
-    {
-        printf("(___)___-____");
-        return;
-    }
-    int i;
-    for (i = 0; i < length; i++)
-    {
-        if (phoneNumber[i] < '0' || phoneNumber[i] > '9')
-        {
-            printf("(___)___-____");
-            return;
+        // If the string is less than or equal to the maxChars we will just add '\0' to the end to mark the end of the string
+        if (ch == '\n' && len <= (maxChar + 1)) {
+            len--;
+            str[len] = '\0';
+        }
+        // If length is more than maxChar, we will add '\0' to the end and ignore the extra characters. We will also remove the extra characters from the buffer.
+        else {
+            str[maxChar] = '\0';
+            clearInputBuffer();
+        }
+
+        if (minChar == maxChar && len != minChar) {
+            printf("Invalid 10-digit number! Number: ");
+            ch = 'a';
+        }
+        else {
+            flag = 0;
         }
     }
-
-    printf("(%c%c%c)%c%c%c-%c%c%c%c", phoneNumber[0], phoneNumber[1], phoneNumber[2],
-           phoneNumber[3], phoneNumber[4], phoneNumber[5], phoneNumber[6],
-           phoneNumber[7], phoneNumber[8], phoneNumber[9]);
 }
-//
-// Copy your work done from Milestone #2 (core.c) into this file
-// - Organize your functions in the same order as they are listed in the core.h file
-//
 
-//////////////////////////////////////
-// UTILITY FUNCTIONS
-//////////////////////////////////////
+// The purpose of this function is to display an array of 10-character digits as a formatted phone number.
+void displayFormattedPhone(const char* str) {
+    int len = 0, i;
+
+    len = strlen(str);
+
+    if (len == 10) {
+        i = 0;
+        printf("(");
+        while (i < 3) {
+            printf("%c", str[i]);
+            i++;
+        }
+        printf(")");
+        while (i < 6) {
+            printf("%c", str[i]);
+            i++;
+        }
+        printf("-");
+        while (i < 10) {
+            printf("%c", str[i]);
+            i++;
+        }
+    }
+    else {
+        printf("(___)___-____");
+    }
+    if (str != 0) {
+        for (i = 0;str[i] != '\0';i++)
+            len++;
+    }
+}

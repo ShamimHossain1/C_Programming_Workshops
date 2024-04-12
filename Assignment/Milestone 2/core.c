@@ -188,7 +188,40 @@ void displayFormattedPhone(const char *phoneNumber)
            phoneNumber[3], phoneNumber[4], phoneNumber[5], phoneNumber[6],
            phoneNumber[7], phoneNumber[8], phoneNumber[9]);
 }
+// This function is the same as inputCString but is exclusively for numbers
+void inputCStringNumbers(char* str, int minChar, int maxChar) {
+    int flag = 1;
+    char ch = 'a';
 
+    while (flag) {
+        int len = 0;
+        // Takes a string as input until it sees a newline character
+        while (ch != '\n' && len <= maxChar) {
+            ch = getchar();
+            str[len] = ch;
+            len++;
+        };
+
+        // If the string is less than or equal to the maxChars we will just add '\0' to the end to mark the end of the string
+        if (ch == '\n' && len <= (maxChar + 1)) {
+            len--;
+            str[len] = '\0';
+        }
+        // If length is more than maxChar, we will add '\0' to the end and ignore the extra characters. We will also remove the extra characters from the buffer.
+        else {
+            str[maxChar] = '\0';
+            clearInputBuffer();
+        }
+
+        if (minChar == maxChar && len != minChar) {
+            printf("Invalid 10-digit number! Number: ");
+            ch = 'a';
+        }
+        else {
+            flag = 0;
+        }
+    }
+}
 //
 // Copy your work done from Milestone #1 (core.c) into this file
 // - Organize your functions in the same order as they are listed in the core.h file

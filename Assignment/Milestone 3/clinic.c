@@ -11,14 +11,48 @@ shared with any other student or 3rd party content provider. This submitted
 piece of work is entirely of my own creation.
 /////////////////////////////////////////////////////////////////////////*/
 
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include <string.h>
+
 
 // include the user library "core" so we can use those functions
 #include "core.h"
 // include the user library "clinic" where the function prototypes are declared
 #include "clinic.h"
+
+// Function to sort the values using bubble sort
+void sort(struct Appointment appoints[], int max) {
+    int i, j;
+    struct Appointment temp;
+
+    // Storing all the date and time values in minutes for comparison
+    for (i = 0; i < max; i++) {
+        appoints[i].time.min = (appoints[i].date.year * 12 * 30 * 24 * 60) + (appoints[i].date.month * 30 * 24 * 60) + (appoints[i].date.day * 24 * 60) + (appoints[i].time.hour * 60) + appoints[i].time.min;
+    }
+
+    // Using bubble sort to compare minutes and then swap the structs
+    for (i = max - 1; i > 0; i--)
+    {
+        for (j = 0; j < i; j++)
+        {
+            if (appoints[j].time.min > appoints[j + 1].time.min)
+            {
+                temp = appoints[j];
+                appoints[j] = appoints[j + 1];
+                appoints[j + 1] = temp;
+            }
+        }
+    }
+
+    // Converting total minutes back to minutes
+    for (i = 0; i < max; i++) {
+        appoints[i].time.min = appoints[i].time.min - (appoints[i].date.year * 12 * 30 * 24 * 60) - (appoints[i].date.month * 30 * 24 * 60) - (appoints[i].date.day * 24 * 60) - (appoints[i].time.hour * 60);
+    }
+
+}
 
 //////////////////////////////////////
 // DISPLAY FUNCTIONS
@@ -34,14 +68,13 @@ void displayPatientTableHeader(void)
 
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
 // Displays a single patient record in FMT_FORM | FMT_TABLE format
-void displayPatientData(const struct Patient *patient, int fmt)
+void displayPatientData(const struct Patient* patient, int fmt)
 {
     if (fmt == FMT_FORM)
     {
         printf("Name  : %s\n"
                "Number: %05d\n"
-               "Phone : ",
-               patient->name, patient->patientNumber);
+               "Phone : ", patient->name, patient->patientNumber);
         displayFormattedPhone(patient->phone.number);
         printf(" (%s)\n", patient->phone.description);
     }
@@ -56,7 +89,7 @@ void displayPatientData(const struct Patient *patient, int fmt)
 
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
 // Display's appointment schedule headers (date-specific or all records)
-void displayScheduleTableHeader(const struct Date *date, int isAllRecords)
+void displayScheduleTableHeader(const struct Date* date, int isAllRecords)
 {
     printf("Clinic Appointments for the Date: ");
 
@@ -76,8 +109,8 @@ void displayScheduleTableHeader(const struct Date *date, int isAllRecords)
 
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
 // Display a single appointment record with patient info. in tabular format
-void displayScheduleData(const struct Patient *patient,
-                         const struct Appointment *appoint,
+void displayScheduleData(const struct Patient* patient,
+                         const struct Appointment* appoint,
                          int includeDateField)
 {
     if (includeDateField)
@@ -93,18 +126,18 @@ void displayScheduleData(const struct Patient *patient,
     printf(" (%s)\n", patient->phone.description);
 }
 
+
 //////////////////////////////////////
 // MENU & ITEM SELECTION FUNCTIONS
 //////////////////////////////////////
 
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
 // main menu
-void menuMain(struct ClinicData *data)
+void menuMain(struct ClinicData* data)
 {
     int selection;
 
-    do
-    {
+    do {
         printf("Veterinary Clinic System\n"
                "=========================\n"
                "1) PATIENT     Management\n"
@@ -142,8 +175,7 @@ void menuPatient(struct Patient patient[], int max)
 {
     int selection;
 
-    do
-    {
+    do {
         printf("Patient Management\n"
                "=========================\n"
                "1) VIEW   Patient Data\n"
@@ -183,20 +215,18 @@ void menuPatient(struct Patient patient[], int max)
 
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
 // Menu: Patient edit
-void menuPatientEdit(struct Patient *patient)
+void menuPatientEdit(struct Patient* patient)
 {
     int selection;
 
-    do
-    {
+    do {
         printf("Edit Patient (%05d)\n"
                "=========================\n"
                "1) NAME : %s\n"
-               "2) PHONE: ",
-               patient->patientNumber, patient->name);
-
+               "2) PHONE: ", patient->patientNumber, patient->name);
+        
         displayFormattedPhone(patient->phone.number);
-
+        
         printf("\n"
                "-------------------------\n"
                "0) Previous menu\n"
@@ -221,14 +251,14 @@ void menuPatientEdit(struct Patient *patient)
     } while (selection);
 }
 
+
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
 // Menu: Appointment Management
-void menuAppointment(struct ClinicData *data)
+void menuAppointment(struct ClinicData* data)
 {
     int selection;
 
-    do
-    {
+    do {
         printf("Appointment Management\n"
                "==============================\n"
                "1) VIEW   ALL Appointments\n"
@@ -244,20 +274,20 @@ void menuAppointment(struct ClinicData *data)
         switch (selection)
         {
         case 1:
-            viewAllAppointments(data); // ToDo: You will need to create this function!
+            viewAllAppointments(data);  // ToDo: You will need to create this function!
             suspend();
             break;
         case 2:
-            viewAppointmentSchedule(data); // ToDo: You will need to create this function!
+            viewAppointmentSchedule(data);  // ToDo: You will need to create this function!
             suspend();
             break;
         case 3:
             addAppointment(data->appointments, data->maxAppointments,
-                           data->patients, data->maxPatient); // ToDo: You will need to create this function!
+                           data->patients, data->maxPatient);  // ToDo: You will need to create this function!
             suspend();
             break;
         case 4:
-            removeAppointment(data->appointments, data->maxAppointments,
+             removeAppointment(data->appointments, data->maxAppointments,
                               data->patients, data->maxPatient); // ToDo: You will need to create this function!
             suspend();
             break;
@@ -265,49 +295,45 @@ void menuAppointment(struct ClinicData *data)
     } while (selection);
 }
 
+
 // ---------------------------------------------------------------------------
 // !!! INSERT/COPY YOUR MS#2 FUNCTION DEFINITIONS BELOW... !!!
 // Note: Maintain the same order/sequence as it is listed in the header file
 //       Properly organize/categorize any new functions accordingly
 // ---------------------------------------------------------------------------
 
+
 // Display's all patient data in the FMT_FORM | FMT_TABLE format
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void displayAllPatients(const struct Patient patient[], int max, int fmt)
-{
+// (Copy your code from MS#2)
+void displayAllPatients(const struct Patient patient[], int max, int fmt) {
     int i, eligible_record = 0;
 
-    if (fmt == FMT_TABLE)
-    {
+    if (fmt == FMT_TABLE) {
         displayPatientTableHeader();
     }
-
-    for (i = 0; i < max; i++)
-    {
-        if (patient[i].patientNumber != 0)
-        {
+    
+    for (i = 0; i < max; i++) {
+        if (patient[i].patientNumber != 0) {
             displayPatientData(&patient[i], fmt);
             eligible_record = 1;
         }
     }
 
-    if (!eligible_record)
-    {
+    if (!eligible_record) {
         printf("*** No records found ***\n\n");
     }
 
     printf("\n");
 }
 
+
 // Search for a patient record based on patient number or phone number
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void searchPatientData(const struct Patient patient[], int max)
-{
+// (Copy your code from MS#2)
+void searchPatientData(const struct Patient patient[], int max) {
     int option;
 
     // Printing menu for user
-    do
-    {
+    do {
         printf("Search Options\n");
         printf("==========================\n");
         printf("1) By patient number\n");
@@ -319,14 +345,12 @@ void searchPatientData(const struct Patient patient[], int max)
         scanf("%d", &option);
         printf("\n");
 
-        if (option == 1)
-        {
+        if (option == 1) {
             searchPatientByPatientNumber(patient, max);
             clearInputBuffer();
             suspend();
         }
-        else if (option == 2)
-        {
+        else if (option == 2) {
             searchPatientByPhoneNumber(patient, max);
             clearInputBuffer();
             suspend();
@@ -335,63 +359,64 @@ void searchPatientData(const struct Patient patient[], int max)
 }
 
 // Add a new patient record to the patient array
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void addPatient(struct Patient patient[], int max)
-{
-    int i, structSize = 0;
-    for (i = 0; i < max; i++)
-    {
-        if (patient[i].patientNumber != 0)
+// (Copy your code from MS#2)
+void addPatient(struct Patient patient[], int max) {
+    int number, index, locate;
+    int i = 0;
+
+    // Checking for first empty space
+    do {
+        locate = 0;
+        if (patient[i].patientNumber == 0)
         {
-            structSize++;
+            locate = 1;
+            index = i;
         }
-    }
-    if (max > structSize)
+        i++;
+    } while (i < max && locate == 0);
+
+    if (locate == 0)
     {
-        patient[structSize].patientNumber = nextPatientNumber(patient, max);
-        inputPatient(patient + structSize);
-        printf("*** New patient record added ***\n\n");
-        clearInputBuffer();
+        printf("ERROR: Patient listing is FULL!\n\n");
     }
     else
     {
-        printf("ERROR: Patient listing is FULL!\n\n");
+        // Assigning the value
+        number = nextPatientNumber(patient, max);
+        patient[index].patientNumber = number;
+        inputPatient(&patient[index]);
+        printf("*** New patient record added ***\n\n");
     }
 }
 
 // Edit a patient record from the patient array
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void editPatient(struct Patient patient[], int max)
-{
+// (Copy your code from MS#2)
+void editPatient(struct Patient patient[], int max) {
     int pNumber, index;
     printf("Enter the patient number: ");
     scanf("%d", &pNumber);
     printf("\n");
 
-    if (findPatientIndexByPatientNum(pNumber, patient, max) != -1)
-    {
+    if (findPatientIndexByPatientNum(pNumber, patient, max) != -1) {
         index = findPatientIndexByPatientNum(pNumber, patient, max);
         menuPatientEdit(patient + index);
     }
-    else
-    {
+    else {
         printf("ERROR: Patient record not found!\n");
     }
 }
 
 // Remove a patient record from the patient array
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void removePatient(struct Patient patient[], int max)
-{
+// (Copy your code from MS#2)
+void removePatient(struct Patient patient[], int max) {
     int pNumber, index;
-    char choice;
+    char choice, ch;
     printf("Enter the patient number: ");
     scanf("%d", &pNumber);
     printf("\n");
 
     // Checking if patient number exists
-    if (findPatientIndexByPatientNum(pNumber, patient, max) != -1)
-    {
+    if (findPatientIndexByPatientNum(pNumber, patient, max) != -1) {
         index = findPatientIndexByPatientNum(pNumber, patient, max);
         printf("Name  : %s\n", patient[index].name);
         printf("Number: %05d\n", patient[index].patientNumber);
@@ -401,23 +426,30 @@ void removePatient(struct Patient patient[], int max)
         printf("\n\n");
 
         printf("Are you sure you want to remove this patient record? (y/n): ");
-        scanf(" %c", &choice);
 
-        if (choice == 'n' || choice == 'N')
-        {
-            printf("Operation aborted.\n\n");
-            clearInputBuffer();
-        }
-        else
-        {
-            // Assigning patient to safe empty state so that the other function can't access it
-            patient[index].patientNumber = 0;
-            printf("Patient record has been removed!\n\n");
-            clearInputBuffer();
-        }
+        int flag = 1;
+
+        do {
+            scanf(" %c%c", &choice, &ch);
+
+            if ((choice == 'n' || choice == 'N') && (ch == '\n')) {
+                printf("Operation aborted.\n\n");
+                flag = 0;
+                clearInputBuffer();
+            }
+            else if ((choice == 'y' || choice == 'Y') && (ch == '\n')) {
+                // Assigning patient to safe empty state so that the other function can't access it
+                patient[index].patientNumber = 0;
+                printf("Patient record has been removed!\n\n");
+                flag = 0;
+            }
+            else {
+                clearInputBuffer();
+                printf("ERROR: Character must be one of [yn]: ");
+            }    
+        } while (flag);
     }
-    else
-    {
+    else {
         printf("ERROR: Patient record not found!\n\n");
         clearInputBuffer();
     }
@@ -429,8 +461,7 @@ void removePatient(struct Patient patient[], int max)
 
 // View ALL scheduled appointments
 // Todo:
-void viewAllAppointments(struct ClinicData *data)
-{
+void viewAllAppointments(struct ClinicData* data) {
     int i, j;
 
     // Sorting the data in the array
@@ -438,14 +469,10 @@ void viewAllAppointments(struct ClinicData *data)
 
     // Displaying the patients
     displayScheduleTableHeader(NULL, 1);
-    for (i = 0; i < data->maxAppointments; i++)
-    {
-        for (j = 0; j < data->maxPatient; j++)
-        {
-            if (data->appointments[i].patientNumber && data->patients[j].patientNumber)
-            {
-                if (data->appointments[i].patientNumber == data->patients[j].patientNumber)
-                {
+    for (i = 0; i < data->maxAppointments; i++) {
+        for (j = 0; j < data->maxPatient; j++) {
+            if (data->appointments[i].patientNumber && data->patients[j].patientNumber) {
+                if (data->appointments[i].patientNumber == data->patients[j].patientNumber) {
                     displayScheduleData(&data->patients[j], &data->appointments[i], 1);
                 }
             }
@@ -457,12 +484,11 @@ void viewAllAppointments(struct ClinicData *data)
 
 // View appointment schedule for the user input date
 // Todo:
-void viewAppointmentSchedule(struct ClinicData *data)
-{
+void viewAppointmentSchedule(struct ClinicData* data) {
     int lastDay = 31;
     int i, j;
     struct Date date;
-
+    
     // Taking the year as input
     printf("Year        : ");
     date.year = inputIntPositive();
@@ -473,16 +499,13 @@ void viewAppointmentSchedule(struct ClinicData *data)
 
     // Taking the day as input
     printf("Day (1-");
-    if (date.month == 4 || date.month == 9 || date.month == 11)
-    {
+    if (date.month == 4 || date.month == 9 ||  date.month == 11) {
         lastDay = 30;
     }
-    if (date.month == 2)
-    {
+    if (date.month == 2) {
         lastDay = 28;
     }
-    if (date.year % 4 == 0 && date.month == 2)
-    {
+    if (date.year % 4 == 0 && date.month == 2) {
         lastDay = 29;
     }
 
@@ -492,19 +515,14 @@ void viewAppointmentSchedule(struct ClinicData *data)
 
     // Sorting the data is the array
     sort(data->appointments, data->maxAppointments);
-
+    
     // Displaying the patients
     displayScheduleTableHeader(&date, 0);
-    for (i = 0; i < data->maxAppointments; i++)
-    {
-        for (j = 0; j < data->maxPatient; j++)
-        {
-            if (data->appointments[i].patientNumber && data->patients[j].patientNumber)
-            {
-                if (data->appointments[i].patientNumber == data->patients[j].patientNumber)
-                {
-                    if (data->appointments[i].date.year == date.year && data->appointments[i].date.month == date.month && data->appointments[i].date.day == date.day)
-                    {
+    for (i = 0; i < data->maxAppointments; i++) {
+        for (j = 0; j < data->maxPatient; j++) {
+            if (data->appointments[i].patientNumber && data->patients[j].patientNumber) {
+                if (data->appointments[i].patientNumber == data->patients[j].patientNumber) {
+                    if (data->appointments[i].date.year == date.year && data->appointments[i].date.month == date.month && data->appointments[i].date.day == date.day) {
                         displayScheduleData(&data->patients[j], &data->appointments[i], 0);
                     }
                 }
@@ -513,12 +531,12 @@ void viewAppointmentSchedule(struct ClinicData *data)
     }
 
     printf("\n");
+    
 }
 
 // Add an appointment record to the appointment array
 // Todo:
-void addAppointment(struct Appointment *app, int maxAppointments, struct Patient *pt, int maxPatients)
-{
+void addAppointment(struct Appointment *app, int maxAppointments, struct Patient *pt, int maxPatients) {
     // Declaring two temporary structs
     struct Date date;
     struct Time time;
@@ -532,8 +550,7 @@ void addAppointment(struct Appointment *app, int maxAppointments, struct Patient
     patientNumber = inputIntPositive();
     index = findPatientIndexByPatientNum(patientNumber, pt, maxPatients);
 
-    if (index >= 0)
-    {
+    if (index >= 0) {
         while (slotNotAvailable)
         {
             // Taking the year as input
@@ -546,22 +563,19 @@ void addAppointment(struct Appointment *app, int maxAppointments, struct Patient
 
             // Taking the day as input
             printf("Day (1-");
-            if (date.month == 4 || date.month == 9 || date.month == 11)
-            {
+            if (date.month == 4 || date.month == 9 ||  date.month == 11) {
                 lastDay = 30;
             }
-            if (date.month == 2)
-            {
+            if (date.month == 2) {
                 lastDay = 28;
             }
-            if (date.year % 4 == 0 && date.month == 2)
-            {
+            if (date.year % 4 == 0 && date.month == 2) {
                 lastDay = 29;
             }
 
             printf("%d)  : ", lastDay);
             date.day = inputIntRange(1, lastDay);
-
+            
             printf("Hour (0-23)  : ");
             time.hour = inputIntRange(0, 23);
 
@@ -569,19 +583,16 @@ void addAppointment(struct Appointment *app, int maxAppointments, struct Patient
             time.min = inputIntRange(0, 59);
 
             // Checking whether time slot is available
-            if (timeSlotAvailable(date, time, app, maxAppointments))
-            {
+            if (timeSlotAvailable(date, time, app, maxAppointments)) {
                 printf("\nERROR: Appointment timeslot is not available!\n\n");
             }
-            else
-            {
-                while ((time.hour < START_HOUR || time.hour > END_HOUR) || (time.hour == END_HOUR && time.min > 0) || (time.min % MINUTE_INTERVAL != 0))
-                {
+            else {
+                while ((time.hour < START_HOUR || time.hour > END_HOUR) || (time.hour == END_HOUR && time.min > 0) || (time.min % MINUTE_INTERVAL != 0)) {
                     printf("ERROR: Time must be between %02d:00 and %02d:00 in %02d minute intervals.\n\n", START_HOUR, END_HOUR, MINUTE_INTERVAL);
                     printf("Hour (0-23)  : ");
-                    time.hour = inputIntRange(0, 23);
+                    time.hour = inputIntRange(0,23);
                     printf("Minute (0-59): ");
-                    time.min = inputIntRange(0, 59);
+                    time.min = inputIntRange(0,59);
                 }
                 slotNotAvailable = 0;
             }
@@ -594,8 +605,7 @@ void addAppointment(struct Appointment *app, int maxAppointments, struct Patient
         app[index].patientNumber = patientNumber;
         printf("\n*** Appointment scheduled! ***\n\n");
     }
-    else
-    {
+    else {
         printf("\nERROR: Patient record not found!\n\n");
     }
     return;
@@ -653,6 +663,7 @@ void removeAppointment(struct Appointment *app, int maxAppointments, struct Pati
             {
                 app[aptIndex].patientNumber = 0;
                 printf("\nAppointment record has been removed!\n\n");
+    
             }
 
             else
@@ -672,17 +683,15 @@ void removeAppointment(struct Appointment *app, int maxAppointments, struct Pati
 //////////////////////////////////////
 
 // Search and display patient record by patient number (form)
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void searchPatientByPatientNumber(const struct Patient patient[], int max)
-{
+// (Copy your code from MS#2)
+void searchPatientByPatientNumber(const struct Patient patient[], int max) {
     int pNumber, index;
     printf("Search by patient number: ");
     scanf("%d", &pNumber);
     printf("\n");
 
     // Checking if patient number exists
-    if (findPatientIndexByPatientNum(pNumber, patient, max) != -1)
-    {
+    if (findPatientIndexByPatientNum(pNumber, patient, max) != -1) {
         index = findPatientIndexByPatientNum(pNumber, patient, max);
         printf("Name  : %s\n", patient[index].name);
         printf("Number: %05d\n", patient[index].patientNumber);
@@ -692,16 +701,14 @@ void searchPatientByPatientNumber(const struct Patient patient[], int max)
         printf("\n\n");
     }
 
-    else
-    {
+    else {
         printf("*** No records found ***\n\n");
     }
 }
 
 // Search and display patient records by phone number (tabular)
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void searchPatientByPhoneNumber(const struct Patient patient[], int max)
-{
+// (Copy your code from MS#2)
+void searchPatientByPhoneNumber(const struct Patient patient[], int max) {
     int i, match = 0;
     char phoneNumber[PHONE_LEN + 1];
     clearInputBuffer();
@@ -711,10 +718,8 @@ void searchPatientByPhoneNumber(const struct Patient patient[], int max)
 
     displayPatientTableHeader();
 
-    for (i = 0; i < max + 1; i++)
-    {
-        if (strcmp(patient[i].phone.number, phoneNumber) == 0)
-        {
+    for (i = 0; i < max + 1; i++) {
+        if (strcmp(patient[i].phone.number, phoneNumber) == 0) {
             printf("%05d %-15s ", patient[i].patientNumber, patient[i].name);
             displayFormattedPhone(patient[i].phone.number);
             printf(" (%s)\n", patient[i].phone.description);
@@ -723,22 +728,18 @@ void searchPatientByPhoneNumber(const struct Patient patient[], int max)
     }
     printf("\n");
 
-    if (match == 0)
-    {
+    if (match == 0) {
         printf("*** No records found ***\n\n");
     }
 }
 
 // Get the next highest patient number
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-int nextPatientNumber(const struct Patient patient[], int max)
-{
+// (Copy your code from MS#2)
+int nextPatientNumber(const struct Patient patient[], int max) {
     int nextNum, maxNum = patient[0].patientNumber, i;
 
-    for (i = 0; i < max; i++)
-    {
-        if (patient[i].patientNumber > maxNum)
-        {
+    for (i = 0; i < max; i++) {
+        if (patient[i].patientNumber > maxNum) {
             maxNum = patient[i].patientNumber;
         }
     }
@@ -748,15 +749,12 @@ int nextPatientNumber(const struct Patient patient[], int max)
 }
 
 // Find the patient array index by patient number (returns -1 if not found)
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-int findPatientIndexByPatientNum(int patientNumber, const struct Patient patient[], int max)
-{
+// (Copy your code from MS#2)
+int findPatientIndexByPatientNum(int patientNumber, const struct Patient patient[], int max) {
     int i;
     // Iterate through the array to find the patient number
-    for (i = 0; i < max; i++)
-    {
-        if (patient[i].patientNumber == patientNumber)
-        {
+    for (i = 0; i < max; i++) {
+        if (patient[i].patientNumber == patientNumber) {
             return i;
         }
     }
@@ -764,36 +762,64 @@ int findPatientIndexByPatientNum(int patientNumber, const struct Patient patient
     return -1;
 }
 
+// Checks to see whether a time slot is available
+int timeSlotAvailable(struct Date date, struct Time time, struct Appointment* app, int maxAppointments) {
+    int i, slotAvailable = 0;
+
+    for (i = 0; i < maxAppointments; i++) {
+        // Checking if time slot is available
+        if (date.year == app[i].date.year && date.month == app[i].date.month && date.day == app[i].date.day && time.hour == app[i].time.hour && time.min == app[i].time.min) {
+            slotAvailable = 1;
+        }
+    }
+
+    return slotAvailable;
+}
+
+// Checks to see which is the next slot that is available and return the index
+int nextSlotAvailable(struct Appointment* app, int maxAppointments) {
+    int i = 0, available = 0;
+    while (available == 0 && i < maxAppointments) {
+        if (app[i].patientNumber < 1) {
+            available = 1;
+        }
+        i++;
+    }
+    return i;
+}
+
+// Checks to see if an appointment is valid
+int validAppointment(int patientNumber, struct Date date, struct Appointment *app, int maxAppointments) {
+    int i = 0, valid = 0;
+
+    while (valid == 0 && i < maxAppointments)
+    {
+        if ((app[i].patientNumber == patientNumber) && (app[i].date.day == date.day) && (app[i].date.month == date.month) && (app[i].date.year == date.year)) {
+            valid = 1;
+        }
+        i++;
+    }
+    return i - 1;
+}
+
 //////////////////////////////////////
 // USER INPUT FUNCTIONS
 //////////////////////////////////////
 
 // Get user input for a new patient record
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void inputPatient(struct Patient *patient)
-{
-    int i;
-    char name[NAME_LEN];
-
-    // Displaying form to take input
+// (Copy your code from MS#2)
+void inputPatient(struct Patient* patient) {
     printf("Patient Data Input\n");
     printf("------------------\n");
     printf("Number: %05d\n", patient->patientNumber);
     printf("Name  : ");
-    fgets(name, sizeof(name), stdin);
-
-    // Storing the name in the struct
-    for (i = 0; i < strlen(name) - 1; i++)
-    {
-        patient->name[i] = name[i];
-    }
-
-    printf("\n");
+    inputCString(patient->name, 1, NAME_LEN);
+    putchar('\n');
     inputPhoneData(&patient->phone);
 }
 
 // Get user input for phone contact information
-// (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+// (Copy your code from MS#2)
 void inputPhoneData(struct Phone *phone)
 {
     int choice, i;
@@ -813,24 +839,25 @@ void inputPhoneData(struct Phone *phone)
     {
 
     case 1:
-        // Storing the description in the struct
-        strncpy(phone->description, "CELL", PHONE_DESC_LEN);
-
-        // Displaying description
+        // strncpy(phone->description, "CELL", PHONE_DESC_LEN);
+        // phone->description[PHONE_DESC_LEN] = '\0';
+        // printf("Contact: %s\n", phone->description);
+        // clearInputBuffer();
+        // printf("Number : ");
+        // fgets(inputNumber, sizeof(inputNumber), stdin);
+        // inputNumber[strcspn(inputNumber, "\n")] = '\0'; // remove newline character
+        // strncpy(phone->number, inputNumber, PHONE_LEN);
+        // phone->number[PHONE_LEN] = '\0'; // null-terminate the string
+        // printf("\n");
+        strncpy(phone->description, "CELL", PHONE_DESC_LEN); 
+        phone->description[PHONE_DESC_LEN] = '\0';
         printf("Contact: %s\n", phone->description);
-
-        // Asking the user for a number as input and storing it in struct
         clearInputBuffer();
         printf("Number : ");
-        fgets(inputNumber, sizeof(inputNumber), stdin);
-
-        for (i = 0; i < PHONE_LEN + 1; i++)
-        {
-            phone->number[i] = inputNumber[i];
-        }
-
-        printf("\n");
-
+        inputCStringNumbers(inputNumber, 10, 10);
+        strncpy(phone->number, inputNumber, PHONE_LEN);
+        phone->number[PHONE_LEN] = '\0';
+        putchar('\n');
         break;
 
     case 2:
@@ -890,12 +917,79 @@ void inputPhoneData(struct Phone *phone)
     }
 }
 
+
+
 //////////////////////////////////////
 // FILE FUNCTIONS
 //////////////////////////////////////
 
 // Import patient data from file into a Patient array (returns # of records read)
 /// ToDo:
+int importPatients(const char* datafile, struct Patient patients[], int max) {
+    // Declaring variables
+    int i = 0;
+    
+    // Opening the file
+    FILE *fp;
+    fp = fopen(datafile, "r");
+
+    // Checking for null pointer
+    if (fp != NULL) {
+        i = 0;
+        while (fscanf(fp, "%d|%[^|]|%[^|]|%[^\n]", &patients[i].patientNumber,
+            patients[i].name,
+            patients[i].phone.description,
+            patients[i].phone.number) != EOF)
+        {
+            i++;
+            if (i >= max)
+                break;
+        }
+
+        // Closing the file
+        fclose(fp);
+    }
+
+    else {
+        printf("ERROR: File could not be read\n");
+    }
+
+    // Returning the number of records read
+    return i;
+}
 
 // Import appointment data from file into an Appointment array (returns # of records read)
 // ToDo:
+int importAppointments(const char* datafile, struct Appointment appoints[], int max) {
+    // Declaring variables
+    int i, count = 0;
+    
+    // Opening the file
+    FILE *fp;
+    fp = fopen(datafile, "r");
+
+    // Checking for null pointer
+    if (fp != NULL) {
+
+        // Iterating until file reaches the end of file or the max is reached
+        for (i = 0; i < max && !feof(fp); i++) {
+            // Reading values from file and storing them
+            fscanf(fp, "%d,%d,%d,%d,%d,%d", &appoints[i].patientNumber, &appoints[i].date.year, &appoints[i].date.month, &appoints[i].date.day, &appoints[i].time.hour, &appoints[i].time.min);
+            
+            // Incrementing count if the end of file is not reached
+            if (!feof(fp)) {
+                count++;
+            }
+        }
+
+        // Closing the file
+        fclose(fp);
+    }
+
+    else {
+        printf("ERROR: File could not be read\n");
+    }
+
+    // Returning the number of records read
+    return count;
+}

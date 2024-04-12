@@ -51,6 +51,7 @@ int inputIntPositive(void);
 int inputIntRange(int lowerBound, int upperBound);
 char inputCharOption(const char *validChars);
 void inputCString(char *str, int minLength, int maxLength);
+void inputCStringNumbers(char* str, int minChar, int maxChar);
 void displayFormattedPhone(const char *phoneNumber);
 
 // !!! DO NOT DELETE THE BELOW LINE !!!

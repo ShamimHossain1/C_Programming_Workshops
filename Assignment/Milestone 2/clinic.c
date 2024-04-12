@@ -216,6 +216,7 @@ void displayAllPatients(const struct Patient patient[], int max, int fmt)
     printf("\n");
 }
 
+
 // Search for a patient record based on patient number or phone number
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
 void searchPatientData(const struct Patient patient[], int max)
@@ -467,9 +468,8 @@ void inputPatient(struct Patient *patient)
 
 // Get user input for phone contact information
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void inputPhoneData(struct Phone *phone)
-{
-    int choice, i;
+void inputPhoneData(struct Phone* phone) {
+    int choice;
     char inputNumber[PHONE_LEN + 1];
     printf("Phone Information\n");
     printf("-----------------\n");
@@ -479,86 +479,48 @@ void inputPhoneData(struct Phone *phone)
     printf("3. Work\n");
     printf("4. TBD\n");
     printf("Selection: ");
-    scanf("%d", &choice);
-    printf("\n");
+    choice = inputIntRange(1, 4);
+    putchar('\n');
 
     switch (choice)
     {
-
     case 1:
         // Storing the description in the struct
         strncpy(phone->description, "CELL", PHONE_DESC_LEN);
-
-        // Displaying description
         printf("Contact: %s\n", phone->description);
-
-        // Asking the user for a number as input and storing it in struct
-        clearInputBuffer();
         printf("Number : ");
-        fgets(inputNumber, sizeof(inputNumber), stdin);
-
-        for (i = 0; i < PHONE_LEN + 1; i++)
-        {
-            phone->number[i] = inputNumber[i];
-        }
-
-        printf("\n");
+        inputCStringNumbers(inputNumber, 10, 10);
+        strcpy(phone->number, inputNumber);
+        putchar('\n');
 
         break;
 
     case 2:
         // Storing the description in the struct
         strncpy(phone->description, "HOME", PHONE_DESC_LEN);
-
-        // Displaying description
         printf("Contact: %s\n", phone->description);
-
-        // Asking the user for a number as input and storing it in struct
-        clearInputBuffer();
         printf("Number : ");
-        fgets(inputNumber, sizeof(inputNumber), stdin);
-
-        for (i = 0; i < PHONE_LEN + 1; i++)
-        {
-            phone->number[i] = inputNumber[i];
-        }
-
-        printf("\n");
+        inputCStringNumbers(inputNumber, 10, 10);
+        strcpy(phone->number, inputNumber);
+        putchar('\n');
 
         break;
 
     case 3:
         // Storing the description in the struct
         strncpy(phone->description, "WORK", PHONE_DESC_LEN);
-
-        // Displaying description
-        printf("Contact: %s", phone->description);
-        printf("\n");
-
-        // Asking the user for a number as input and storing it in struct
-        clearInputBuffer();
+        printf("Contact: %s\n", phone->description);
         printf("Number : ");
-        fgets(inputNumber, sizeof(inputNumber), stdin);
-
-        for (i = 0; i < PHONE_LEN + 1; i++)
-        {
-            phone->number[i] = inputNumber[i];
-        }
-
-        printf("\n");
+        inputCStringNumbers(inputNumber, 10, 10);
+        strcpy(phone->number, inputNumber);
+        putchar('\n');
 
         break;
 
     case 4:
         // Storing the description in the struct
         strncpy(phone->description, "TBD", PHONE_DESC_LEN);
-
-        *phone->number = 0;
-
-        break;
-
-    default:
-        printf("Error:\n");
+        *phone->number = '\0';
         break;
     }
 }
