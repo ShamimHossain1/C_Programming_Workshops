@@ -216,6 +216,7 @@ void displayAllPatients(const struct Patient patient[], int max, int fmt)
     printf("\n");
 }
 
+
 // Search for a patient record based on patient number or phone number
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
 void searchPatientData(const struct Patient patient[], int max)

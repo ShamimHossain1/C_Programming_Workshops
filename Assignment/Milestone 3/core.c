@@ -15,6 +15,8 @@ piece of work is entirely of my own creation.
 #include <stdio.h>
 
 #include "core.h"
+#include <string.h>
+#include <ctype.h>
 
 //////////////////////////////////////
 // USER INTERFACE FUNCTIONS

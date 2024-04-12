@@ -180,6 +180,15 @@ int nextPatientNumber(const struct Patient patient[], int max);
 int findPatientIndexByPatientNum(int patientNumber,
                                  const struct Patient patient[], int max);
 
+// Checks to see whether a time slot is available
+int timeSlotAvailable(struct Date date, struct Time time, struct Appointment *app, int maxAppointments);
+
+// Checks to see which is the next slot that is available and return the index
+int nextSlotAvailable(struct Appointment *app, int maxAppointments);
+
+// Checks to see if an appointment is valid
+int validAppointment(int patientNumber, struct Date date, struct Appointment *app, int maxAppointments);
+
 //////////////////////////////////////
 // USER INPUT FUNCTIONS
 //////////////////////////////////////
