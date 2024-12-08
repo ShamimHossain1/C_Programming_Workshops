@@ -16,7 +16,10 @@ piece of work is entirely of my own creation.
 
 #include <stdio.h>
 #include <string.h>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
 
 // include the user library "core" so we can use those functions
 #include "core.h"
@@ -24,12 +27,22 @@ piece of work is entirely of my own creation.
 #include "clinic.h"
 
 // Function to sort the values using bubble sort
+<<<<<<< HEAD
 void sort(struct Appointment appoints[], int max) {
+=======
+void sort(struct Appointment appoints[], int max)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int i, j;
     struct Appointment temp;
 
     // Storing all the date and time values in minutes for comparison
+<<<<<<< HEAD
     for (i = 0; i < max; i++) {
+=======
+    for (i = 0; i < max; i++)
+    {
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
         appoints[i].time.min = (appoints[i].date.year * 12 * 30 * 24 * 60) + (appoints[i].date.month * 30 * 24 * 60) + (appoints[i].date.day * 24 * 60) + (appoints[i].time.hour * 60) + appoints[i].time.min;
     }
 
@@ -48,10 +61,17 @@ void sort(struct Appointment appoints[], int max) {
     }
 
     // Converting total minutes back to minutes
+<<<<<<< HEAD
     for (i = 0; i < max; i++) {
         appoints[i].time.min = appoints[i].time.min - (appoints[i].date.year * 12 * 30 * 24 * 60) - (appoints[i].date.month * 30 * 24 * 60) - (appoints[i].date.day * 24 * 60) - (appoints[i].time.hour * 60);
     }
 
+=======
+    for (i = 0; i < max; i++)
+    {
+        appoints[i].time.min = appoints[i].time.min - (appoints[i].date.year * 12 * 30 * 24 * 60) - (appoints[i].date.month * 30 * 24 * 60) - (appoints[i].date.day * 24 * 60) - (appoints[i].time.hour * 60);
+    }
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
 }
 
 //////////////////////////////////////
@@ -305,7 +325,12 @@ void menuAppointment(struct ClinicData* data)
 
 // Display's all patient data in the FMT_FORM | FMT_TABLE format
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 void displayAllPatients(const struct Patient patient[], int max, int fmt) {
+=======
+void displayAllPatients(const struct Patient patient[], int max, int fmt)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int i, eligible_record = 0;
 
     if (fmt == FMT_TABLE) {
@@ -329,7 +354,12 @@ void displayAllPatients(const struct Patient patient[], int max, int fmt) {
 
 // Search for a patient record based on patient number or phone number
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 void searchPatientData(const struct Patient patient[], int max) {
+=======
+void searchPatientData(const struct Patient patient[], int max)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int option;
 
     // Printing menu for user
@@ -360,6 +390,7 @@ void searchPatientData(const struct Patient patient[], int max) {
 
 // Add a new patient record to the patient array
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 void addPatient(struct Patient patient[], int max) {
     int number, index, locate;
     int i = 0;
@@ -368,6 +399,15 @@ void addPatient(struct Patient patient[], int max) {
     do {
         locate = 0;
         if (patient[i].patientNumber == 0)
+=======
+
+void addPatient(struct Patient patient[], int max)
+{
+    int i, structSize = 0;
+    for (i = 0; i < max; i++)
+    {
+        if (patient[i].patientNumber != 0)
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
         {
             locate = 1;
             index = i;
@@ -391,7 +431,12 @@ void addPatient(struct Patient patient[], int max) {
 
 // Edit a patient record from the patient array
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 void editPatient(struct Patient patient[], int max) {
+=======
+void editPatient(struct Patient patient[], int max)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int pNumber, index;
     printf("Enter the patient number: ");
     scanf("%d", &pNumber);
@@ -408,7 +453,12 @@ void editPatient(struct Patient patient[], int max) {
 
 // Remove a patient record from the patient array
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 void removePatient(struct Patient patient[], int max) {
+=======
+void removePatient(struct Patient patient[], int max)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int pNumber, index;
     char choice, ch;
     printf("Enter the patient number: ");
@@ -684,7 +734,12 @@ void removeAppointment(struct Appointment *app, int maxAppointments, struct Pati
 
 // Search and display patient record by patient number (form)
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 void searchPatientByPatientNumber(const struct Patient patient[], int max) {
+=======
+void searchPatientByPatientNumber(const struct Patient patient[], int max)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int pNumber, index;
     printf("Search by patient number: ");
     scanf("%d", &pNumber);
@@ -708,7 +763,12 @@ void searchPatientByPatientNumber(const struct Patient patient[], int max) {
 
 // Search and display patient records by phone number (tabular)
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 void searchPatientByPhoneNumber(const struct Patient patient[], int max) {
+=======
+void searchPatientByPhoneNumber(const struct Patient patient[], int max)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int i, match = 0;
     char phoneNumber[PHONE_LEN + 1];
     clearInputBuffer();
@@ -735,7 +795,12 @@ void searchPatientByPhoneNumber(const struct Patient patient[], int max) {
 
 // Get the next highest patient number
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 int nextPatientNumber(const struct Patient patient[], int max) {
+=======
+int nextPatientNumber(const struct Patient patient[], int max)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int nextNum, maxNum = patient[0].patientNumber, i;
 
     for (i = 0; i < max; i++) {
@@ -750,7 +815,12 @@ int nextPatientNumber(const struct Patient patient[], int max) {
 
 // Find the patient array index by patient number (returns -1 if not found)
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 int findPatientIndexByPatientNum(int patientNumber, const struct Patient patient[], int max) {
+=======
+int findPatientIndexByPatientNum(int patientNumber, const struct Patient patient[], int max)
+{
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     int i;
     // Iterate through the array to find the patient number
     for (i = 0; i < max; i++) {
@@ -760,6 +830,53 @@ int findPatientIndexByPatientNum(int patientNumber, const struct Patient patient
     }
     // If anything is not found, -1 is returned
     return -1;
+}
+// Checks to see whether a time slot is available
+int timeSlotAvailable(struct Date date, struct Time time, struct Appointment *app, int maxAppointments)
+{
+    int i, slotAvailable = 0;
+
+    for (i = 0; i < maxAppointments; i++)
+    {
+        // Checking if time slot is available
+        if (date.year == app[i].date.year && date.month == app[i].date.month && date.day == app[i].date.day && time.hour == app[i].time.hour && time.min == app[i].time.min)
+        {
+            slotAvailable = 1;
+        }
+    }
+
+    return slotAvailable;
+}
+
+// Checks to see which is the next slot that is available and return the index
+int nextSlotAvailable(struct Appointment *app, int maxAppointments)
+{
+    int i = 0, available = 0;
+    while (available == 0 && i < maxAppointments)
+    {
+        if (app[i].patientNumber < 1)
+        {
+            available = 1;
+        }
+        i++;
+    }
+    return i;
+}
+
+// Checks to see if an appointment is valid
+int validAppointment(int patientNumber, struct Date date, struct Appointment *app, int maxAppointments)
+{
+    int i = 0, valid = 0;
+
+    while (valid == 0 && i < maxAppointments)
+    {
+        if ((app[i].patientNumber == patientNumber) && (app[i].date.day == date.day) && (app[i].date.month == date.month) && (app[i].date.year == date.year))
+        {
+            valid = 1;
+        }
+        i++;
+    }
+    return i - 1;
 }
 
 // Checks to see whether a time slot is available
@@ -808,7 +925,16 @@ int validAppointment(int patientNumber, struct Date date, struct Appointment *ap
 
 // Get user input for a new patient record
 // (Copy your code from MS#2)
+<<<<<<< HEAD
 void inputPatient(struct Patient* patient) {
+=======
+void inputPatient(struct Patient *patient)
+{
+    int i;
+    char name[NAME_LEN];
+
+    // Displaying form to take input
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     printf("Patient Data Input\n");
     printf("------------------\n");
     printf("Number: %05d\n", patient->patientNumber);
@@ -820,6 +946,10 @@ void inputPatient(struct Patient* patient) {
 
 // Get user input for phone contact information
 // (Copy your code from MS#2)
+<<<<<<< HEAD
+=======
+
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
 void inputPhoneData(struct Phone *phone)
 {
     int choice, i;
@@ -925,21 +1055,39 @@ void inputPhoneData(struct Phone *phone)
 
 // Import patient data from file into a Patient array (returns # of records read)
 /// ToDo:
+<<<<<<< HEAD
 int importPatients(const char* datafile, struct Patient patients[], int max) {
     // Declaring variables
     int i = 0;
     
+=======
+int importPatients(const char *datafile, struct Patient patients[], int max)
+{
+    // Declaring variables
+    int i = 0;
+
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     // Opening the file
     FILE *fp;
     fp = fopen(datafile, "r");
 
     // Checking for null pointer
+<<<<<<< HEAD
     if (fp != NULL) {
         i = 0;
         while (fscanf(fp, "%d|%[^|]|%[^|]|%[^\n]", &patients[i].patientNumber,
             patients[i].name,
             patients[i].phone.description,
             patients[i].phone.number) != EOF)
+=======
+    if (fp != NULL)
+    {
+        i = 0;
+        while (fscanf(fp, "%d|%[^|]|%[^|]|%[^\n]", &patients[i].patientNumber,
+                      patients[i].name,
+                      patients[i].phone.description,
+                      patients[i].phone.number) != EOF)
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
         {
             i++;
             if (i >= max)
@@ -950,7 +1098,12 @@ int importPatients(const char* datafile, struct Patient patients[], int max) {
         fclose(fp);
     }
 
+<<<<<<< HEAD
     else {
+=======
+    else
+    {
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
         printf("ERROR: File could not be read\n");
     }
 
@@ -960,15 +1113,24 @@ int importPatients(const char* datafile, struct Patient patients[], int max) {
 
 // Import appointment data from file into an Appointment array (returns # of records read)
 // ToDo:
+<<<<<<< HEAD
 int importAppointments(const char* datafile, struct Appointment appoints[], int max) {
     // Declaring variables
     int i, count = 0;
     
+=======
+int importAppointments(const char *datafile, struct Appointment appoints[], int max)
+{
+    // Declaring variables
+    int i, count = 0;
+
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
     // Opening the file
     FILE *fp;
     fp = fopen(datafile, "r");
 
     // Checking for null pointer
+<<<<<<< HEAD
     if (fp != NULL) {
 
         // Iterating until file reaches the end of file or the max is reached
@@ -978,6 +1140,20 @@ int importAppointments(const char* datafile, struct Appointment appoints[], int 
             
             // Incrementing count if the end of file is not reached
             if (!feof(fp)) {
+=======
+    if (fp != NULL)
+    {
+
+        // Iterating until file reaches the end of file or the max is reached
+        for (i = 0; i < max && !feof(fp); i++)
+        {
+            // Reading values from file and storing them
+            fscanf(fp, "%d,%d,%d,%d,%d,%d", &appoints[i].patientNumber, &appoints[i].date.year, &appoints[i].date.month, &appoints[i].date.day, &appoints[i].time.hour, &appoints[i].time.min);
+
+            // Incrementing count if the end of file is not reached
+            if (!feof(fp))
+            {
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
                 count++;
             }
         }
@@ -986,7 +1162,12 @@ int importAppointments(const char* datafile, struct Appointment appoints[], int 
         fclose(fp);
     }
 
+<<<<<<< HEAD
     else {
+=======
+    else
+    {
+>>>>>>> e6bf2e6483ec3a487958487e74dc3a6d901db855
         printf("ERROR: File could not be read\n");
     }
 

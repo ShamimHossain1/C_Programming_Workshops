@@ -1,9 +1,9 @@
 /*/////////////////////////////////////////////////////////////////////////
                         Assignment 1 - Milestone 2
-Full Name  : Shamim Hossain Srabon
-Student ID#: 135646230
-Email      : shsrabon@myseneca.ca
-Section    : NHH
+Full Name  : Mustafa Dohad
+Student ID#: 123090235
+Email      : mna26@myseneca.ca
+Section    : ZGG
 
 Authenticity Declaration:
 I declare this submission is the result of my own work and has not been
@@ -30,30 +30,30 @@ piece of work is entirely of my own creation.
 void displayPatientTableHeader(void)
 {
     printf("Pat.# Name            Phone#\n"
-           "----- --------------- --------------------\n");
+        "----- --------------- --------------------\n");
 }
 
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
-// Displays a single patient record in FMT_FORM | FMT_TABLE format
-void displayPatientData(const struct Patient *patient, int fmt)
+// Displays a single patient record in FORMATFORM | FORMAT_TABLE format
+void displayPatientData(const struct Patient* patient, int format)
 {
-    if (fmt == FMT_FORM)
+    if (format == FORMATFORM)
     {
         printf("Name  : %s\n"
-               "Number: %05d\n"
-               "Phone : ",
-               patient->name, patient->patientNumber);
+            "Number: %05d\n"
+            "Phone : ", patient->name, patient->patientNumber);
         displayFormattedPhone(patient->phone.number);
         printf(" (%s)\n", patient->phone.description);
     }
     else
     {
         printf("%05d %-15s ", patient->patientNumber,
-               patient->name);
+            patient->name);
         displayFormattedPhone(patient->phone.number);
         printf(" (%s)\n", patient->phone.description);
     }
 }
+
 
 //////////////////////////////////////
 // MENU & ITEM SELECTION FUNCTIONS
@@ -61,20 +61,19 @@ void displayPatientData(const struct Patient *patient, int fmt)
 
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
 // main menu
-void menuMain(struct ClinicData *data)
+void menuMain(struct ClinicData* data)
 {
     int selection;
 
-    do
-    {
+    do {
         printf("Veterinary Clinic System\n"
-               "=========================\n"
-               "1) PATIENT     Management\n"
-               "2) APPOINTMENT Management\n"
-               "-------------------------\n"
-               "0) Exit System\n"
-               "-------------------------\n"
-               "Selection: ");
+            "=========================\n"
+            "1) PATIENT     Management\n"
+            "2) APPOINTMENT Management\n"
+            "-------------------------\n"
+            "0) Exit System\n"
+            "-------------------------\n"
+            "Selection: ");
         selection = inputIntRange(0, 2);
         putchar('\n');
         switch (selection)
@@ -104,25 +103,24 @@ void menuPatient(struct Patient patient[], int max)
 {
     int selection;
 
-    do
-    {
+    do {
         printf("Patient Management\n"
-               "=========================\n"
-               "1) VIEW   Patient Data\n"
-               "2) SEARCH Patients\n"
-               "3) ADD    Patient\n"
-               "4) EDIT   Patient\n"
-               "5) REMOVE Patient\n"
-               "-------------------------\n"
-               "0) Previous menu\n"
-               "-------------------------\n"
-               "Selection: ");
+            "=========================\n"
+            "1) VIEW   Patient Data\n"
+            "2) SEARCH Patients\n"
+            "3) ADD    Patient\n"
+            "4) EDIT   Patient\n"
+            "5) REMOVE Patient\n"
+            "-------------------------\n"
+            "0) Previous menu\n"
+            "-------------------------\n"
+            "Selection: ");
         selection = inputIntRange(0, 5);
         putchar('\n');
         switch (selection)
         {
         case 1:
-            displayAllPatients(patient, max, FMT_TABLE);
+            displayAllPatients(patient, max, FORMAT_TABLE);
             suspend();
             break;
         case 2:
@@ -145,25 +143,23 @@ void menuPatient(struct Patient patient[], int max)
 
 // !!! DO NOT MODIFY THIS FUNCTION DEFINITION !!!
 // Menu: Patient edit
-void menuPatientEdit(struct Patient *patient)
+void menuPatientEdit(struct Patient* patient)
 {
     int selection;
 
-    do
-    {
+    do {
         printf("Edit Patient (%05d)\n"
-               "=========================\n"
-               "1) NAME : %s\n"
-               "2) PHONE: ",
-               patient->patientNumber, patient->name);
+            "=========================\n"
+            "1) NAME : %s\n"
+            "2) PHONE: ", patient->patientNumber, patient->name);
 
         displayFormattedPhone(patient->phone.number);
 
         printf("\n"
-               "-------------------------\n"
-               "0) Previous menu\n"
-               "-------------------------\n"
-               "Selection: ");
+            "-------------------------\n"
+            "0) Previous menu\n"
+            "-------------------------\n"
+            "Selection: ");
         selection = inputIntRange(0, 2);
         putchar('\n');
 
@@ -183,27 +179,28 @@ void menuPatientEdit(struct Patient *patient)
     } while (selection);
 }
 
+
 // ---------------------------------------------------------------------------
 // !!! Put all the remaining function definitions below !!!
 // Note: Maintain the same order/sequence as it is listed in the header file
 // ---------------------------------------------------------------------------
 
-// Display's all patient data in the FMT_FORM | FMT_TABLE format
+// Display's all patient data in the FORMATFORM | FORMAT_TABLE format
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void displayAllPatients(const struct Patient patient[], int max, int fmt)
-{
+
+void displayAllPatients(const struct Patient patient[], int max, int format) {
     int i, eligible_record = 0;
 
-    if (fmt == FMT_TABLE)
-    {
+    if (format == FORMAT_TABLE) {
         displayPatientTableHeader();
     }
 
     for (i = 0; i < max; i++)
     {
+
         if (patient[i].patientNumber != 0)
         {
-            displayPatientData(&patient[i], fmt);
+            displayPatientData(&patient[i], format);
             eligible_record = 1;
         }
     }
@@ -216,18 +213,18 @@ void displayAllPatients(const struct Patient patient[], int max, int fmt)
     printf("\n");
 }
 
-
 // Search for a patient record based on patient number or phone number
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+
 void searchPatientData(const struct Patient patient[], int max)
 {
     int option;
 
     // Printing menu for user
-    do
-    {
+    do {
         printf("Search Options\n");
         printf("==========================\n");
+
         printf("1) By patient number\n");
         printf("2) By phone number\n");
         printf("..........................\n");
@@ -235,55 +232,61 @@ void searchPatientData(const struct Patient patient[], int max)
         printf("..........................\n");
         printf("Selection: ");
         scanf("%d", &option);
+
         printf("\n");
 
-        if (option == 1)
-        {
+        if (option == 1) {
+
             searchPatientByPatientNumber(patient, max);
             clearInputBuffer();
             suspend();
+
         }
-        else if (option == 2)
-        {
+        else if (option == 2) {
+
             searchPatientByPhoneNumber(patient, max);
             clearInputBuffer();
             suspend();
+
         }
+
     } while (option != 0);
 }
 
 // Add a new patient record to the patient array
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+
 void addPatient(struct Patient patient[], int max)
 {
     int i, structSize = 0;
-    for (i = 0; i < max; i++)
-    {
-        if (patient[i].patientNumber != 0)
-        {
+    for (i = 0; i < max; i++) {
+        if (patient[i].patientNumber != 0) {
             structSize++;
         }
     }
-    if (max > structSize)
-    {
+    if (max > structSize) {
         patient[structSize].patientNumber = nextPatientNumber(patient, max);
         inputPatient(patient + structSize);
         printf("*** New patient record added ***\n\n");
         clearInputBuffer();
     }
-    else
-    {
+
+    else {
         printf("ERROR: Patient listing is FULL!\n\n");
     }
 }
 
+
+
 // Edit a patient record from the patient array
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+
 void editPatient(struct Patient patient[], int max)
 {
     int pNumber, index;
     printf("Enter the patient number: ");
     scanf("%d", &pNumber);
+
     printf("\n");
 
     if (findPatientIndexByPatientNum(pNumber, patient, max) != -1)
@@ -291,20 +294,20 @@ void editPatient(struct Patient patient[], int max)
         index = findPatientIndexByPatientNum(pNumber, patient, max);
         menuPatientEdit(patient + index);
     }
-    else
-    {
+    else {
         printf("ERROR: Patient record not found!\n");
     }
 }
-
 // Remove a patient record from the patient array
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+
 void removePatient(struct Patient patient[], int max)
 {
     int pNumber, index;
     char choice;
     printf("Enter the patient number: ");
     scanf("%d", &pNumber);
+
     printf("\n");
 
     // Checking if patient number exists
@@ -316,6 +319,7 @@ void removePatient(struct Patient patient[], int max)
         printf("Phone : ");
         displayFormattedPhone(patient[index].phone.number);
         printf(" (%s)", patient[index].phone.description);
+
         printf("\n\n");
 
         printf("Are you sure you want to remove this patient record? (y/n): ");
@@ -326,16 +330,16 @@ void removePatient(struct Patient patient[], int max)
             printf("Operation aborted.\n\n");
             clearInputBuffer();
         }
-        else
-        {
+        else {
+
             // Assigning patient to safe empty state so that the other function can't access it
+
             patient[index].patientNumber = 0;
             printf("Patient record has been removed!\n\n");
             clearInputBuffer();
         }
     }
-    else
-    {
+    else {
         printf("ERROR: Patient record not found!\n\n");
         clearInputBuffer();
     }
@@ -347,33 +351,38 @@ void removePatient(struct Patient patient[], int max)
 
 // Search and display patient record by patient number (form)
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+
 void searchPatientByPatientNumber(const struct Patient patient[], int max)
 {
     int pNumber, index;
     printf("Search by patient number: ");
     scanf("%d", &pNumber);
+
     printf("\n");
 
     // Checking if patient number exists
+
     if (findPatientIndexByPatientNum(pNumber, patient, max) != -1)
     {
         index = findPatientIndexByPatientNum(pNumber, patient, max);
         printf("Name  : %s\n", patient[index].name);
         printf("Number: %05d\n", patient[index].patientNumber);
         printf("Phone : ");
+
         displayFormattedPhone(patient[index].phone.number);
         printf(" (%s)", patient[index].phone.description);
+
         printf("\n\n");
     }
 
-    else
-    {
+    else {
         printf("*** No records found ***\n\n");
     }
 }
 
 // Search and display patient records by phone number (tabular)
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+
 void searchPatientByPhoneNumber(const struct Patient patient[], int max)
 {
     int i, match = 0;
@@ -381,20 +390,21 @@ void searchPatientByPhoneNumber(const struct Patient patient[], int max)
     clearInputBuffer();
     printf("Search by phone number: ");
     fgets(phoneNumber, sizeof(phoneNumber), stdin);
+
     printf("\n");
 
     displayPatientTableHeader();
 
     for (i = 0; i < max + 1; i++)
     {
-        if (strcmp(patient[i].phone.number, phoneNumber) == 0)
-        {
+        if (strcmp(patient[i].phone.number, phoneNumber) == 0) {
             printf("%05d %-15s ", patient[i].patientNumber, patient[i].name);
             displayFormattedPhone(patient[i].phone.number);
             printf(" (%s)\n", patient[i].phone.description);
             match++;
         }
     }
+
     printf("\n");
 
     if (match == 0)
@@ -405,14 +415,14 @@ void searchPatientByPhoneNumber(const struct Patient patient[], int max)
 
 // Get the next highest patient number
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+
 int nextPatientNumber(const struct Patient patient[], int max)
 {
     int nextNum, maxNum = patient[0].patientNumber, i;
 
     for (i = 0; i < max; i++)
     {
-        if (patient[i].patientNumber > maxNum)
-        {
+        if (patient[i].patientNumber > maxNum) {
             maxNum = patient[i].patientNumber;
         }
     }
@@ -420,21 +430,24 @@ int nextPatientNumber(const struct Patient patient[], int max)
     nextNum = maxNum + 1;
     return nextNum;
 }
-
 // Find the patient array index by patient number (returns -1 if not found)
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
+
 int findPatientIndexByPatientNum(int patientNumber, const struct Patient patient[], int max)
 {
     int i;
+
     // Iterate through the array to find the patient number
+
     for (i = 0; i < max; i++)
     {
-        if (patient[i].patientNumber == patientNumber)
-        {
+        if (patient[i].patientNumber == patientNumber) {
             return i;
         }
     }
+
     // If anything is not found, -1 is returned
+
     return -1;
 }
 
@@ -444,83 +457,138 @@ int findPatientIndexByPatientNum(int patientNumber, const struct Patient patient
 
 // Get user input for a new patient record
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void inputPatient(struct Patient *patient)
+
+void inputPatient(struct Patient* patient)
 {
     int i;
     char name[NAME_LEN];
 
     // Displaying form to take input
+
     printf("Patient Data Input\n");
     printf("------------------\n");
+
     printf("Number: %05d\n", patient->patientNumber);
     printf("Name  : ");
     fgets(name, sizeof(name), stdin);
 
     // Storing the name in the struct
+
     for (i = 0; i < strlen(name) - 1; i++)
     {
         patient->name[i] = name[i];
     }
 
     printf("\n");
+
     inputPhoneData(&patient->phone);
 }
-
 // Get user input for phone contact information
 // (ToDo: PUT THE FUNCTION DEFINITION BELOW)
-void inputPhoneData(struct Phone* phone) {
-    int choice;
+
+void inputPhoneData(struct Phone* phone)
+{
+    int choice, i;
     char inputNumber[PHONE_LEN + 1];
     printf("Phone Information\n");
     printf("-----------------\n");
+
     printf("How will the patient like to be contacted?\n");
     printf("1. Cell\n");
     printf("2. Home\n");
     printf("3. Work\n");
     printf("4. TBD\n");
     printf("Selection: ");
-    choice = inputIntRange(1, 4);
-    putchar('\n');
+    scanf("%d", &choice);
+
+    printf("\n");
 
     switch (choice)
     {
+
     case 1:
         // Storing the description in the struct
+
         strncpy(phone->description, "CELL", PHONE_DESC_LEN);
+
+        // Displaying description
+
         printf("Contact: %s\n", phone->description);
+
+        // Asking the user for a number as input and storing it in struct
+
+        clearInputBuffer();
+
         printf("Number : ");
-        inputCStringNumbers(inputNumber, 10, 10);
-        strcpy(phone->number, inputNumber);
-        putchar('\n');
+        fgets(inputNumber, sizeof(inputNumber), stdin);
+
+        for (i = 0; i < PHONE_LEN + 1; i++) {
+            phone->number[i] = inputNumber[i];
+        }
+
+        printf("\n");
 
         break;
 
     case 2:
         // Storing the description in the struct
+
         strncpy(phone->description, "HOME", PHONE_DESC_LEN);
+
+        // Displaying description
+
         printf("Contact: %s\n", phone->description);
+
+        // Asking the user for a number as input and storing it in struct
+
+        clearInputBuffer();
         printf("Number : ");
-        inputCStringNumbers(inputNumber, 10, 10);
-        strcpy(phone->number, inputNumber);
-        putchar('\n');
+        fgets(inputNumber, sizeof(inputNumber), stdin);
+
+        for (i = 0; i < PHONE_LEN + 1; i++) {
+            phone->number[i] = inputNumber[i];
+        }
+
+        printf("\n");
 
         break;
 
     case 3:
         // Storing the description in the struct
+
         strncpy(phone->description, "WORK", PHONE_DESC_LEN);
-        printf("Contact: %s\n", phone->description);
+
+        // Displaying description
+
+        printf("Contact: %s", phone->description);
+
+        printf("\n");
+
+        // Asking the user for a number as input and storing it in struct
+
+        clearInputBuffer();
         printf("Number : ");
-        inputCStringNumbers(inputNumber, 10, 10);
-        strcpy(phone->number, inputNumber);
-        putchar('\n');
+        fgets(inputNumber, sizeof(inputNumber), stdin);
+
+        for (i = 0; i < PHONE_LEN + 1; i++) {
+            phone->number[i] = inputNumber[i];
+        }
+
+        printf("\n");
 
         break;
 
     case 4:
         // Storing the description in the struct
+
         strncpy(phone->description, "TBD", PHONE_DESC_LEN);
-        *phone->number = '\0';
+
+        *phone->number = 0;
+
+        break;
+
+    default:
+        printf("Error:\n");
         break;
     }
 }
