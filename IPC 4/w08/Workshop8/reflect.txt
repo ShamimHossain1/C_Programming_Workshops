@@ -1,0 +1,39 @@
+///////////////////////////////////////////////////////////////////////////
+                               Reflection
+                             Workshop - #8
+Full Name  : ILHYUN CHO
+Student ID#: 116342221
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+1. 
+ One benefit of having functions designed to return values via an argument and/or by return is flexibility.
+It allows the user to choose how they want the function to be used, either as an argument or by a return, 
+depending on the user's preference or specific needs. This makes the code more reusable and efficient as the user can use it in different ways.
+One negative reason having a function designed to work in this way may not be desirable is that it can make the code less readable. 
+The user may find themselves unsure which returning method is being used in a given function call, making the code difficult to debug 
+and maintain.
+
+2. 
+ Function getIntPositive()
+This function could be improved by increasing its cohesion. Currently, it only gets user input and validates it, 
+but it could also do the job of assigning the input to the pointer argument. This would reduce the number of lines in the main() function, 
+making it easier to read and reducing the amount of code.
+
+ Function displayCatFoodData()
+This function could be improved by reducing its coupling. Currently, it takes four parameters, which all need to be passed from the main() function. 
+It could be improved by passing a pointer to a structure, instead of passing four parameters. This would reduce the amount of code in the main() function, 
+making it easier to read, and reduce the number of parameters needed for this function.
+
+3.
+Advantages of passing structures to functions are that passing structures to functions allows for a large amount of information to be passed to a single function rather than having to pass individual pieces of data to different functions. 
+By passing structures, a user is able to pass multiple pieces of data with a single function call.
+The “displayCatfoodData” function could be improved by utilizing pointers and pass by reference. By passing the data by reference, 
+we can avoid making a copy of the data and reducing the amount of data that needs to be passed. By utilizing pointers, 
+the data can be updated and display the changes from within the function. 
+Additionally, the function could be improved by utilizing a structure to pass the data to the function instead of passing the individual pieces of data. 
+This would reduce the amount of data that needs to be passed to the function and reduce the complexity of the function.

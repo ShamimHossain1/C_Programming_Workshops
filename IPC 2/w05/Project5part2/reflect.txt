@@ -1,0 +1,42 @@
+///////////////////////////////////////////////////////////////////////////
+
+                              Reflection
+                             Workshop - #5
+Full Name  : URVISH CHAUDHARI
+Student ID#: 153158225
+Email      : urvishchaudhari292@gmail.com/udchaudhari1@myseneca.ca
+Section    : NCC
+
+Authenticity Declaration:
+
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+
+ 1. Why use variables and macros instead of hardcoded "magic" numbers?
+Using variables and macros instead of hardcoded "magic" numbers provides several advantages:
+
+Readability and Maintainability: Naming variables and using macros with meaningful names makes 
+the code more readable and easier to understand. It also improves maintainability, as changes to
+ the value can be made in one place (the variable or macro definition) rather than scattered 
+throughout the code.
+
+Flexibility: If a value needs to be changed, having it stored in a variable or macro allows for easy
+ modification without altering the logic of the code. This is particularly useful in situations where 
+values may need adjustment during development or for different use cases.
+
+Avoiding Errors: Magic numbers are prone to errors and can be confusing. Using variables or macros provides
+ a clear context for the purpose of the value and reduces the likelihood of mistakes.
+
+2. Why not include sum and average logic within the validation routine?
+Separation of Concerns: The validation routine is responsible for ensuring the correctness of the input 
+data. Including sum and average logic within the validation routine would violate the principle of separation
+ of concerns, making the code less modular and harder to understand. Each part of the code should have a single
+ responsibility, making it easier to maintain and debug.
+
+Reusability: Separating validation from sum and average logic allows for better code reuse. The validation routine
+ can be used independently in other parts of the program, and the sum and average logic can be applied to different
+ datasets without duplicating code.
+///////////////////////////////////////////////////////////////////////////
+
+

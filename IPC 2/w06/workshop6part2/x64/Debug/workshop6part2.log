@@ -1,0 +1,4 @@
+﻿  w6p2.c
+C:\Users\urvis\source\repos\Solution1\workshop5part2\workshop6part2\w6p2.c(142,37): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\urvis\source\repos\Solution1\workshop5part2\workshop6part2\w6p2.c(108,13): warning C4101: 'years': unreferenced local variable
+  workshop6part2.vcxproj -> C:\Users\urvis\source\repos\Solution1\workshop5part2\workshop6part2\x64\Debug\workshop6part2.exe

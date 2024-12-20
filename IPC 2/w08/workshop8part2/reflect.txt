@@ -1,0 +1,54 @@
+///////////////////////////////////////////////////////////////////////////
+
+                              Reflection
+                             Workshop - #8 p(2)
+Full Name  : URVISH DINESHBHAI CHAUDHARI
+Student ID#: 153158225
+Email      : urvishchaudhari292@gmail.com/udchaudhari1@myseneca.ca
+Section    : NCC
+
+
+
+1. Benefits and Drawbacks of Returning Values in Two Ways:
+   - Benefit: Increased Flexibility - Providing both return values and using reference parameters 
+     allows users to choose their preferred way of obtaining results. Some developers might prefer 
+     one method over the other based on coding style or specific requirements.
+   - Drawback: Potential for Confusion - Having multiple ways to return values can lead to confusion, 
+     especially for developers new to the codebase. It might make the code less readable and harder 
+     to maintain. It also introduces redundancy, as both methods might need to be implemented and kept in sync.
+
+2. Cohesion and Coupling in Functions:
+   - Less than Perfect Cohesion: The function `calculateReportData` could be considered to have less
+     than perfect cohesion. It combines the responsibilities of calculating both weight in grams and   
+     weight in kilograms, which might be better separated into two distinct functions.
+   - Coupling Improvement: The function `displayReportData` demonstrates some coupling as it relies on  
+     the external variable `cheapestOption`. A better approach could be to pass `cheapestOption` as a 
+     parameter to the function, reducing its dependence on external variables.
+
+3. Advantages of Passing Structures to Functions:
+   - Advantages:
+     - Simplicity: Passing structures allows for the grouping of related data, leading to cleaner and more organized code.
+     - Modularity: Functions can work with structured data without needing to know the internal details, promoting modularity.
+     - Readability: Code becomes more readable as the structure defines a clear data contract.
+
+   Efficiency Improvement:
+   - Pointer Passing: Instead of passing the entire structure, passing a pointer to the structure can be more efficient,
+     especially for large structures, as it avoids unnecessary copying of data.
+   - Const-Correctness: Using `const` in function parameters where applicable ensures that the passed structure is not
+     modified unintentionally, improving both safety and potentially compiler optimizations.
+
+   Improving `displayCatFoodData` Function:
+   - Parameter Type: Pass the structure by a const pointer to avoid unnecessary copying of the entire structure.
+   - Consistency: Ensure that the function only displays data and does not modify the structure. Use `const` appropriately 
+     in the function signature to enforce this.
+   - Error Handling: Add error handling mechanisms to handle potential issues gracefully, making the function more robust.
+
+
+Authenticity Declaration:
+
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+

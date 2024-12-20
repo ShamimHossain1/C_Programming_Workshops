@@ -1,0 +1,53 @@
+Script started on Mon 18 Sep 2023 09:05:18 PM EDT
+Set Shirt Prices
+================
+Enter the price for a SMALL shirt: $17.96
+Enter the price for a MEDIUM shirt: $26.97
+Enter the price for a LARGE shirt: $35.96
+Shirt Store Price=================
+Petty's Shirt Size Is 'S'
+Number of Shirts CUSTOMER Is Buying: 53
+
+Tommy's Shirt Size Is 'L'
+Number of Shirts CUSTOMER Is Buying: 5
+
+Sally's Shirt Size Is 'M'
+Number of Shirts CUSTOMER Is Buying: 4
+
+Customer Size Price Qty Sub-Total     Tax    Total
+  -------- ---- ----- --- --------- --------- ---------
+  Petty    S    17.96 53  951.8800     742.5300     1694.4100
+  Tommy    M    26.97 5  134.8500     70.1000     204.9500
+  Sally    L    35.96 4  143.8400     56.1200     199.9600
+ -------- ---- ----- --- --------- --------- ---------
+                         1230.5700     868.7500     2099.3200
+
+Daily Retail Sales Represented By Coins
+  =======================================
+Sales EXCLUDING tax
+Coin     Qty   Balance
+-------- --- ---------
+              1230.5700
+Toonies  615   0.0200
+Loonies  0   0.0200
+Quarters 2   0.0200
+Dimes    0   0.0200
+Nickels  1   0.0200
+Pennies  1   0.0200
+
+Average cost/shirt: 19.8479
+
+Sales INCLUDING tax
+Coin     Qty   Balance
+-------- --- ---------
+              2099.3200
+Toonies  1049   0.0200
+Loonies  1   0.0200
+Quarters 1   0.0200
+Dimes    0   0.0200
+Nickels  1   0.0200
+Pennies  1   0.0200
+
+Average cost/shirt: 33.8600
+
+Script done on Mon 18 Sep 2023 09:05:53 PM EDT

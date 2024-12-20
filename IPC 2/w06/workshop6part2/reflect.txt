@@ -1,0 +1,58 @@
+///////////////////////////////////////////////////////////////////////////
+
+                              Reflection
+                             Workshop - #6
+Full Name  : URVISH CHAUDHARI
+Student ID#: 153158225
+Email      : urvishchaudhari292@gmail.com/udchaudhari1@myseneca.ca
+Section    : NCC
+
+Authenticity Declaration:
+
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+
+
+Types of Iteration Constructs:
+In your code, you used different ways to repeat actions – like a computer 
+doing something over and over. There are two types you used: one is called 
+"do-while," and the other is "for." When you decide which one to use, it 
+depends on what you want the computer to do. If you want a piece of code to 
+happen at least once, you use "do-while." It's like saying, "Do this, and 
+then check if you should keep doing it." On the other hand, if you know 
+exactly how many times you want something to happen, you use "for." It's 
+like saying, "Do this five times, and then stop." "For" is often liked when
+ you're working with a list of things because it's clear and easy to understand.
+
+Testing and Debugging:
+To make sure your program works correctly, you probably tried different
+situations. You gave it different numbers or values to see if it does what
+it's supposed to do. When something didn't work, you had to find and fix 
+the problem. For this, you might have used different tricks like showing
+some values on the screen, stopping the program at certain points, or 
+using a special tool called a debugger. If there were mistakes that the
+computer could understand, you fixed them based on what the computer told 
+you. If it was more like the program doing something you didn't want, you
+looked at the logic (how the program thinks) and checked the values of 
+different things in your code.
+
+Error Feedback from Submitter:
+The computer that checks your work told you there's a problem in your output.
+Here's how you can find and fix it:
+
+1. Open the file where your program wrote its answers (output.txt) and the
+ correct file that the computer expects (w6p2_master_output.txt).
+2. Go to line 6 in your answers and compare it to what the computer wants.
+3. Look at a specific spot in line 6, which is the 33rd spot along. Check 
+ the type of symbol there using a special code called ASCII.
+4. See what the computer expects in that spot, and notice if it's different
+ from what your program did.
+5. Find the part in your code that makes this line and check if there's 
+ something wrong with how it makes symbols.
+6. Check if your code has any problems with how it shows things, and if 
+ it does, fix it so it matches what the computer wants.
+
+///////////////////////////////////////////////////////////////////////////
+
+

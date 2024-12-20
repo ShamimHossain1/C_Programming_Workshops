@@ -1,0 +1,42 @@
+///////////////////////////////////////////////////////////////////////////
+
+                              Reflection
+                             Workshop - #4
+Full Name  : URVISH CHAUDHARI
+Student ID#: 153158225
+Email      : urvishchaudhari292@gmail.com/udchaudhari1@myseneca.ca
+Section    : NCC
+
+Authenticity Declaration:
+
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+
+ 1.Code Formatting Appreciation:
+
+With the completion of this workshop, I have developed a deeper appreciation for the importance of code formatting. 
+To enhance the readability and maintainability of my code, especially in the iteration and selection logic parts,
+I adhered to consistent indentation practices. Clear and concise variable names were employed, and comments were
+added where necessary to explain complex sections.By following a consistent coding style, I ensured that anyone 
+reviewing or collaborating on the code could easily grasp the logic flow and make modifications without introducing errors.
+
+ 2.Impact of No Nesting:
+
+Nested logic plays a crucial role in programming, and its absence would significantly impact the structure and 
+readability of the workshop code. Without the ability to nest, the code might become convoluted with multiple 
+levels of indentation, making it challenging to discern the logical hierarchy. This could lead to longer and 
+less maintainable code, as each level of logic would need to be flattened, potentially resulting in duplicated 
+code segments or the use of additional variables to store intermediate results.
+
+ 3.Inefficiency of "If" Optional Paths:
+
+If the logic requires the user to input a value between 1 and 5, with unique actions for each value, using 
+a series of "if" optional path constructs would be inefficient. This approach would require evaluating each
+ condition independently, even if the previous conditions were satisfied. In contrast, the preferred 
+"if/else if..." alternative path logic ensures that once a condition is met, the subsequent conditions are 
+not evaluated, improving efficiency. This is particularly crucial when dealing with mutually exclusive 
+conditions, as it reduces unnecessary comparisons and enhances the overall performance of the code.
+///////////////////////////////////////////////////////////////////////////
+
+

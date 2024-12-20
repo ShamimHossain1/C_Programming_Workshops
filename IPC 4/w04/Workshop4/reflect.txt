@@ -1,0 +1,45 @@
+///////////////////////////////////////////////////////////////////////////
+                              Reflection
+                          Workshop - #3 (P2)
+Full Name  : Ilhyun Cho
+Student ID#: 116342221
+Email      : icho8@myseneca.ca
+Section    : ZCC
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+1. With the completion of this workshop, you must have begun to appreciate why code formatting is important. 
+Explain how you made your code – especially the iteration and selection logic parts – easy to read and maintain.
+
+
+do
+    {
+        printf("Grocery Shopping\n");
+        printf("================\n");
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+    } while (repeat);
+
+- Do-while iterator were used, and the condition of the iterator was set to 'repeat'. The value of 'repeat' was changed to escape from the iterator .
+
+
+
+2. Nested logic is an important feature of programming in any language. Identify and briefly discuss the biggest 
+impact on how this workshop could be coded if nesting were not possible.
+
+- It repeats the same format, but the product name is different. So I copied and pasted the code and changed the product name one by one to complete the work.
+
+
+
+
+3. Consider the following scenario: you are programming logic that requires a user to input a value between 1 and 
+5, and for each value within that range, you had to perform something unique. You would have to apply 
+selection to validate the entered values so you can implement the given logic for a specific entered range value. 
+Explain why is it inefficient to achieve this using a series of “if” optional path constructs instead of the preferred 
+“if/else if…” alternative path logic?
+
+-The number of cases is 5 from 1 to 5. If there are more cases than this, I will have to repeat 'else if' several times.
+In this case, it seems better to use 'switch' to distinguish the conditions by case.

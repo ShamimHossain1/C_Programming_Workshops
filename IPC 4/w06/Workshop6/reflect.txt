@@ -1,0 +1,38 @@
+///////////////////////////////////////////////////////////////////////////
+                               Reflection
+                             Workshop - #6
+Full Name  : ilhyun cho
+Student ID#: 116342221
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+1. The three types of iteration constructs are for loops, while loops, and do-while loops. All three of these constructs can be used to iterate through an array and perform operations on each element.  
+For loops are the most commonly used iteration construct when working with arrays because they allow for the initialization of a counter, a conditional check for completion, and finally an increment of the counter all within the same line. 
+This allows for more control over the loop and makes it easier to read and understand what the loop is doing. 
+While loops and do-while loops can also be used but they are less preferred as they require the counter to be initialized and updated outside of the loop.
+
+2. 
+- When there is a syntax error, program will not compile.
+I actively used compiler error messages to find syntax errors such as missing ';' and brackets. 
+If I missed something necessary syntactically, the program doesn't work and I can check what, where and why it is wrong by double clicking the error messages.
+(This is more like a spelling error)
+Semantic error is like a grammar error, it will compile but the meaning or logic should be changed.
+When I enter input data beyond the coverage I set, I designed to come up with error messages. But, sometimes it doesn't work well.
+There were a few reasons such as incorrect operator order(incorrect range) and using wrong variables. 
+I checked these problems with IDE debugging. I made breakpoints at the sentence which I thought was wrong.
+And by pressing 'F5', I started debugging. By pressing 'F10', I could progress to the next sentence.
+I could check if it was saved correct numbers in exact variables by this process.
+If an unintended number was stored in a variable, I could know what was wrong by 'walkthroughs' before the breakpoint.
+
+
+3. 
+1) Open the two files, output.txt and w6p2_master_output.txt, provided in the directory.
+2) Compare the two files side-by-side to identify the difference between the two outputs.
+3) An error occurs because the submitted output is printing $567.89, while the correct output should be printing $0.
+4) To identify the source of the error, go to the line of code where the output is being printed and locate the scanf statement.
+5) Modify the scanf statement to prompt for an integer instead of a double.
+6) Re-run the program and re-submit the output.

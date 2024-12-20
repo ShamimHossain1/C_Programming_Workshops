@@ -1,0 +1,3 @@
+﻿  w3p1.c
+C:\Users\urvis\source\repos\Solution1\workshop3p1\w3p1.c(11,21): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  workshop3p1.vcxproj -> C:\Users\urvis\source\repos\Solution1\workshop3p1\x64\Debug\workshop3p1.exe

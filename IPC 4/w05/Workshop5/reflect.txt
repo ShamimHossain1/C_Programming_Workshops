@@ -1,0 +1,37 @@
+///////////////////////////////////////////////////////////////////////////
+                               Reflection
+                             Workshop - #5
+Full Name  : ilhyun cho
+Student ID#: 116342221
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+1.
+ 1) Variables and macros make it easier to read and maintain code. By using meaningful names for the variables, 
+    it is much easier to understand what a piece of code is doing and make changes if necessary.
+ 2) Variables and macros make it easier to test code. By using variables, we can easily change the value of the variables to see how the code behaves in different conditions
+ 3) Variables and macros can be reused in different parts of the code. This saves time, 
+    as they can be easily referred to in multiple places without having to rewrite the same value over and over again. 
+    This also reduces the risk of errors, as it eliminates the need to manually enter the values each time.
+
+2. 
+       printf("Summary\n");
+        printf("=======\n");
+        printf("Morning total rating:%7.3lf\n", morningCalculate);
+        printf("Evening total rating:%7.3lf\n", eveningCalculate);
+        printf("----------------------------\n");
+        printf("Overall total rating:%7.3lf\n\n", morningCalculate + eveningCalculate);
+
+        printf("Average morning rating:%5.1lf\n", morningCalculate / LOG_DAYS);
+        printf("Average Evening rating:%5.1lf\n", eveningCalculate / LOG_DAYS);
+        printf("----------------------------\n");
+        printf("Average overall rating:%5.1lf\n", ((morningCalculate / LOG_DAYS) + (eveningCalculate / LOG_DAYS)) / 2);
+
+- One reason why it is better design to place the sum and average logic outside of any validation routine is because it allows for easier debugging if errors occur.  
+By separating them, if errors arise from the validation loop, it is easier to locate and fix them without disrupting the logic of the sum and average calculations.
+Another reason why it is better design to place the sum and average logic outside of any validation routine is because it allows for better code readability. 
+In this workshop, the code for the validation loop is concise and efficiently written, and the code for the sum and average calculations is separated, 
+making it easier to understand and maintain. By separating the two, it is easier to identify and modify any errors without causing confusion.

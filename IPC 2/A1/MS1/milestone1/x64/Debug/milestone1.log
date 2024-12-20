@@ -1,0 +1,4 @@
+﻿  core.c
+C:\Users\Akshay\OneDrive\Desktop\urvish\milestone1\core.c(97,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Akshay\OneDrive\Desktop\urvish\milestone1\core.c(173,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  milestone1.vcxproj -> C:\Users\Akshay\OneDrive\Desktop\urvish\milestone1\x64\Debug\milestone1.exe

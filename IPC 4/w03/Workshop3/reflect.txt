@@ -1,0 +1,30 @@
+
+///////////////////////////////////////////////////////////////////////////
+                              Reflection
+                          Workshop - #3 (P2)
+Full Name  : Ilhyun Cho
+Student ID#: 116342221
+Email      :  icho8@myseneca.ca
+Section    :  ZCC
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+1. Determining the customer preference based on the number of servings to the available coffee bag weights required a more complex logical expression. Copy your submitted code for only this part of the logic, and explain the following:
+(1 <= dailySer1 && dailySer1 <= 4) && (0 <= cof1Weight && cof1Weight <= 250) || ((5 <= dailySer1 && dailySer1 <= 9) && (250 < cof1Weight && cof1Weight <= 500)) || ((dailySer1 >= 10) && (500 < cof1Weight && cof1Weight <= 1000))
+A) How many relational expressions did you use and identify each of them. 
+ - 11relational expressions used (eg. <=, <, >=)
+B) How many logical expressions did you use and identify each of them.
+ - 10 logical expressions used (eg. ||, &&)
+
+2. Referring to Part-1 output #9, show how that logic can be coded in TWO correct ways, one applying DeMorgan’s Law and the other way not using DeMorgan’s Law. Also, identify what method you used in your submitted answer for Part-1.
+ 1) printf("9. Based on product ID, product 3 is unique -> %d\n\n", (product3Id != product1Id && product3Id != product2Id));
+ 2) printf("9. Based on product ID, product 3 is unique -> %d\n\n", !(product3Id == product1Id || product3Id == product2Id));
+- Parentheses instruct the compiler to evaluate the contained expression first. So these two methods can output the same value.
+
+3. Using the variables you used in Part-2, demonstrate two ways you can organize them, so it is optimized for easy to maintain code and contributes towards clarity in how data is stored in the program.
+ 1) const double GRAMS_IN_LBS = 453.5924; 
+ 2) double GRAMS_IN_LBS = 453.5924;
+ - With const double , the variable is fixed and used, but with double, the value of the variable can be changed.

@@ -1,0 +1,24 @@
+/*
+*****************************************************************************
+
+Full Name  : Urvish Dineshbhai Chaudhari
+Student ID#: 153158225
+Email      : udchaudhari1@myseneca.ca
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+*/
+
+Certainly! Here's the text without asterisks:
+
+1a. I introduced a new function called "timeSlotAvailable." This function, with the prototype "int timeSlotAvailable(struct Date date, struct Time time, struct Appointment app, int maxAppointments)," serves the purpose of checking available slots for appointments. It essentially compares the list stored in the appointmentData file, searching for space within the list and iteratively checking for additional space.
+
+1b. Another function I implemented is "nextSlotAvailable." This function aids in organizing appointment data chronologically and identifying the next available time slot. The prototype for this function is "int nextSlotAvailable(struct Appointment app, int maxAppointments)." It utilizes a while loop to iterate through the structure, setting a variable to 1 upon finding an appointment with a patientNumber less than 1. This variable facilitates the loop exit, returning the index where the appointment with a patientNumber less than 1 was found, indicating the subsequent opening in the appointment schedule.
+
+1c. The third additional function is "validAppointment," designed to validate taken appointments. Its prototype is "int validAppointment(int patientNumber, struct Date date, struct Appointment app, int maxAppointments)." This function takes three inputs: a patient number (integer), a Date structure, and an array of Appointment structures. It returns the index of the matching Appointment structure after scrutinizing the array for the specified patient number and date. If no match is found, the function returns -1.
+
+2. The "addAppointment" function comprises around 85 lines of code, and I streamlined its complexity by applying pattern recognition and incorporating relevant functions, saving at least 50 lines of code. This function necessitates multiple data inputs, such as patient number, appointment date (year, month, day), and time (hour, minute). For each input, positive integer validation is required. I employed the "inputIntPositive" and "inputIntRange" functions for these validations. Additionally, I consolidated the logic for checking the next available time slot into functions, namely "timeSlotAvailable" and "nextSlotAvailable," enhancing code readability and maintainability.
+
+3. During the first week, we established foundational code for the milestone, serving as a basis for subsequent parts. The functions developed in part 1 played a crucial role in parts 2 and 3. In the second week, we crafted a program for patient management, encompassing features like file viewing, searching, editing, adding, and removing patient information. The appointment system program was developed in the preceding week. Dividing a large program into smaller components and completing each separately proved effective. I encountered challenges during the milestone, such as "inputCharOption" in Part 1, "editPatient" in Part 2, and arranging appointment times in order in Part 3. Overcoming these challenges required dedicated time for research, learning, and thoughtful consideration. Consistent effort is essential for mastering programming due to the constant evolution of new methods.

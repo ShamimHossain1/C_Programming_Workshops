@@ -1,0 +1,7 @@
+﻿  w8p2.c
+D:\IPC144\w08\Workshop8\w8p2.c(113,82): warning C4028: formal parameter 3 different from declaration
+D:\IPC144\w08\Workshop8\w8p2.c(113,101): warning C4028: formal parameter 4 different from declaration
+D:\IPC144\w08\Workshop8\w8p2.c(138,39): warning C4244: 'initializing': conversion from 'const double' to 'int', possible loss of data
+D:\IPC144\w08\Workshop8\w8p2.c(151,39): warning C4244: 'initializing': conversion from 'const double' to 'int', possible loss of data
+D:\IPC144\w08\Workshop8\w8p2.c(209,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Workshop8.vcxproj -> D:\IPC144\w08\Workshop8\x64\Debug\Workshop8.exe

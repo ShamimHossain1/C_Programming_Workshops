@@ -1,0 +1,14 @@
+In line number 100 of your output:
+The output should be:
+Based on the comparison data, the PURRR-fect economical option is:
+                                       ^
+But your output is: 
+Based on the comparison data, the PURRR - fect economical option is:
+                                       ^
+
+Unmatched character details:
+The character in column 40 is supposed to be:
+  [-] ASCII code(45)
+but you printed
+  [Space] ASCII code(32)
+

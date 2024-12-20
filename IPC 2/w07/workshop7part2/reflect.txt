@@ -1,0 +1,49 @@
+///////////////////////////////////////////////////////////////////////////
+
+                              Reflection
+                             Workshop - #7 (P2)
+Full Name  : URVISH DINESHBHAI CHAUDHARI
+Student ID#: 153158225
+Email      : urvishchaudhari292@gmail.com/udchaudhari1@myseneca.ca
+Section    : NCC
+
+Authenticity Declaration:
+
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+///////////////////////////////////////////////////////////////////////////
+
+
+1. It appears that you have successfully coded non-repetitive sections of 
+   logic in the game play portion. The use of loops and conditionals allows you 
+   to efficiently display the game board, player position, and handle player 
+   moves. Your code uses loops to draw the ruler, board, and handle player 
+   movement, making it non-repetitive. The logic is organized and structured, 
+   which improves code readability and maintainability.
+
+2. The use of structures simplifies your program in several ways:
+   - It encapsulates related data into meaningful structures 
+     (PlayerInfo and GameInfo), which makes it easier to manage 
+     and access the game's state.
+   - It allows you to pass structured data as function arguments,
+     reducing the need for multiple individual variables.
+   - By storing related data within structures, your code is more 
+     organized and self-documenting. It's clear that player.lives 
+     represents the player's lives, and game.path_length represents 
+     the path length.
+   - Structures make it easier to extend the game's functionality by 
+     adding more attributes to the player or game without significantly 
+     altering the code.
+
+3. In your code, the maximum number of levels of nesting appears to be one. 
+   Here's a simplified outline to illustrate the nesting structure:
+   - Level 1:
+     - while (!is_done)
+       - Inside the while loop, you have several conditional statements and 
+         loops that are not nested more deeply. Each of these constructs is 
+         at the same level of nesting.
+
+
+
+
